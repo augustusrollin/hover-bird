@@ -1,7 +1,8 @@
 # hover-bird
 AP CS Project that is similar to flappy bird
 
-Things we need to cover:
-
+stuff to do
 - time line 
-- do something new
+- new things to do
+  - robot class
+  - key listener
