@@ -64,5 +64,3 @@ public class Obstacle {
 		this.tertiaryColor = tertiaryColor;
 	}
 }
-
-
