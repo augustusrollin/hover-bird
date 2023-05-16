@@ -5,10 +5,14 @@ It will have the same structure of the actual game, meaning the bird will still 
 
 Another significant difference is the main menu, if we are able to get to that in the time we have been given. The main menu will consist of multiple themes that the user will be able to pick from, a default mode, jungle mode, futuristic mode, and a rainbow mode. Each mode will change the background/scenery, the character, the obstacles, and the music that is being played.
 
-![view](./images/READMEFlappyBird.png)
-
 How to run the code:
 #!/bin/bash
 javac src/*.java
 java -cp src/ App
 rm src/*.class
+
+![view](./images/READMELoadingScreen.png)
+![view](./images/READMESelection.png)
+![view](./images/READMEFlappyBird.png)
+
+
