@@ -11,7 +11,7 @@ public class GameRunner {
     private int restartDelay;
     private int pipeDelay;
 
-    private Bird bird;
+    private Characters character;
     private ArrayList<Obstacles> pipes;
     private Keyboard keyboard;
 
@@ -34,7 +34,7 @@ public class GameRunner {
         restartDelay = 0;
         pipeDelay = 0;
 
-        bird = new Bird();
+        character = new Characters();
         pipes = new ArrayList<Obstacles>();
     }
 
@@ -50,7 +50,7 @@ public class GameRunner {
         if (paused)
             return;
 
-        bird.update();
+        character.update();
 
         if (gameover)
             return;
@@ -65,7 +65,7 @@ public class GameRunner {
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
         renders.add(new Render(0, 0, "images/foreground.png"));
-        renders.add(bird.getRender());
+        renders.add(character.getRender());
         return renders;
     }
 
@@ -143,18 +143,18 @@ public class GameRunner {
     private void checkForCollisions() {
 
         for (Obstacles pipe : pipes) {
-            if (pipe.collides(bird.x, bird.y, bird.width, bird.height)) {
+            if (pipe.collides(character.x, character.y, character.width, character.height)) {
                 gameover = true;
-                bird.isDead = true;
-            } else if (pipe.x == bird.x && pipe.orientation.equalsIgnoreCase("south")) {
+                character.isDead = true;
+            } else if (pipe.x == character.x && pipe.orientation.equalsIgnoreCase("south")) {
                 score++;
             }
         }
 
         // Ground + Bird collision
-        if (bird.y + bird.height > Window.HEIGHT - 80) {
+        if (character.y + character.height > Window.HEIGHT - 80) {
             gameover = true;
-            bird.y = Window.HEIGHT - 80 - bird.height;
+            character.y = Window.HEIGHT - 80 - character.height;
         }
     }
 }

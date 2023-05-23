@@ -11,7 +11,6 @@ public class Characters {
 
     public String imageName;
 
-
     public boolean isDead;
 
     public double yvelocity;
@@ -31,7 +30,7 @@ public class Characters {
         height = 32;
         gravity = 0.5;
         jumpDelay = 0;
-        rotation = 0.0;
+        rotation = 5.0;
         isDead = false;
         imageName = "bird";
 
