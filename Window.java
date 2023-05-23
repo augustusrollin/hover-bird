@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class App {
+public class Window {
 
     public static int WIDTH = 500;
     public static int HEIGHT = 520;

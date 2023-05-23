@@ -152,9 +152,9 @@ public class GameRunner {
         }
 
         // Ground + Bird collision
-        if (bird.y + bird.height > App.HEIGHT - 80) {
+        if (bird.y + bird.height > Window.HEIGHT - 80) {
             gameover = true;
-            bird.y = App.HEIGHT - 80 - bird.height;
+            bird.y = Window.HEIGHT - 80 - bird.height;
         }
     }
 }

@@ -20,7 +20,7 @@ public class Obstacles {
     public void reset() {
         width = 66;
         height = 400;
-        x = App.WIDTH + 2;
+        x = Window.WIDTH + 2;
 
         if (orientation.equals("south")) {
             y = -(int)(Math.random() * 120) - height / 2;
