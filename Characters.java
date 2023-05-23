@@ -54,7 +54,7 @@ public class Characters {
         r.y = y;
 
         if (image == null) {
-            image = Util.loadImage("lib/bird.png");     
+            image = Util.loadImage("images/bird.png");     
         }
         r.image = image;
 

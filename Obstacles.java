@@ -53,7 +53,7 @@ public class Obstacles {
         r.y = y;
 
         if (image == null) {
-            image = Util.loadImage("lib/pipe-" + orientation + ".png");
+            image = Util.loadImage("images/pipe-" + orientation + ".png");
         }
         r.image = image;
 
