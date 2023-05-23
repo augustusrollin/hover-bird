@@ -9,6 +9,9 @@ public class Characters {
     public int width;
     public int height;
 
+    public String imageName;
+
+
     public boolean isDead;
 
     public double yvelocity;
@@ -30,6 +33,7 @@ public class Characters {
         jumpDelay = 0;
         rotation = 0.0;
         isDead = false;
+        imageName = "bird";
 
         keyboard = Keyboard.getInstance();
     }
@@ -54,7 +58,7 @@ public class Characters {
         r.y = y;
 
         if (image == null) {
-            image = Util.loadImage("images/bird.png");     
+            image = Util.loadImage("images/"+imageName+".png");     
         }
         r.image = image;
 

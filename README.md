@@ -6,8 +6,9 @@ This project that is essentially an extension to the game flappy bird. We will b
 -   Another significant difference is the main menu, if we are able to get to that in the time we have been given. The main menu will consist of multiple themes that the user will be able to pick from, a default mode, jungle mode, futuristic mode, and a rainbow mode. Each mode will change the background/scenery, the character, the obstacles, and the music that is being played.
 
 ## Things to change/work on
--   Refactor characters class, to use the point class instead of the x and y coordinates
--   Figure out how to implement the music into the code correctly, and if seperrate classes for each need to be used
+-   Refactor characters class, to use the point class instead of the x and y coordinates.
+-   Figure out how to implement the music into the code correctly, and if seperrate classes for each need to be used.
+-   For the pathing of the images, consider creating seperate folders inside images to have it more organized. Also create a variable that will be able to keep track of the pathing. Could approach it in a similar way as north/south pipes, which is done in the GameRunner class.
 
 ## How to run the code
 ```zsh
