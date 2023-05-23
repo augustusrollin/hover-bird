@@ -9,9 +9,9 @@ public class Characters {
     public int width;
     public int height;
 
-    public boolean dead;
+    public boolean isDead;
 
-    public double yvel;
+    public double yvelocity;
     public double gravity;
 
     private int jumpDelay;
@@ -23,29 +23,29 @@ public class Characters {
     public Characters() {
         x = 100;
         y = 150;
-        yvel = 0;
+        yvelocity = 0;
         width = 45;
         height = 32;
         gravity = 0.5;
         jumpDelay = 0;
         rotation = 0.0;
-        dead = false;
+        isDead = false;
 
         keyboard = Keyboard.getInstance();
     }
 
     public void update() {
-        yvel += gravity;
+        yvelocity += gravity;
 
         if (jumpDelay > 0)
             jumpDelay--;
 
-        if (!dead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0) {
-            yvel = -10;
+        if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0) {
+            yvelocity = -10;
             jumpDelay = 10;
         }
 
-        y += (int)yvel;
+        y += (int)yvelocity;
     }
 
     public Render getRender() {
@@ -58,7 +58,7 @@ public class Characters {
         }
         r.image = image;
 
-        rotation = (90 * (yvel + 20) / 20) - 90;
+        rotation = (90 * (yvelocity + 20) / 20) - 90;
         rotation = rotation * Math.PI / 180;
 
         if (rotation > Math.PI / 2)

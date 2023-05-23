@@ -1,15 +1,23 @@
 # hover-bird
-AP CS Project that is an extension/similar to flappy bird
+This project that is essentially an extension to the game flappy bird. We will be adding several other modes/themes to the game that will change the character, background, pipes, and music that is being played. 
 
-It will have the same structure of the actual game, meaning the bird will still go through the pipes to get a higher score. A main difference about the functionality of the game is how high the speed is at the current of the level is at, high score, and time alive.
+-   It will have the same structure of the actual game, meaning the bird will still go through the pipes to get a higher score. A main difference about the functionality of the game is how high the speed is at the current of the level is at, high score, and time alive.
 
-Another significant difference is the main menu, if we are able to get to that in the time we have been given. The main menu will consist of multiple themes that the user will be able to pick from, a default mode, jungle mode, futuristic mode, and a rainbow mode. Each mode will change the background/scenery, the character, the obstacles, and the music that is being played.
+-   Another significant difference is the main menu, if we are able to get to that in the time we have been given. The main menu will consist of multiple themes that the user will be able to pick from, a default mode, jungle mode, futuristic mode, and a rainbow mode. Each mode will change the background/scenery, the character, the obstacles, and the music that is being played.
 
-How to run the code:
-#!/bin/bash
-javac src/*.java
-java -cp src/ App
-rm src/*.class
+## Things to change/work on
+-   Refactor characters class, to use the point class instead of the x and y coordinates
+-   Figure out how to implement the music into the code correctly, and if seperrate classes for each need to be used
+
+## How to run the code
+```zsh
+# initially you need to ensure that the run script is executable
+chmod +x run
+
+# run the program (1st it compiles, then runs java pointed at the main class aka Window)
+./run
+```
+
 
 ![view](./images/READMELoadingScreen.png)
 ![view](./images/READMESelection.png)
