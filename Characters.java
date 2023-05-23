@@ -19,25 +19,24 @@ public class Characters {
     private Image image;
     private Keyboard keyboard;
 
-    public Characters() {}
-
-    public Characters(Properties prop) {
+    public Characters() {
         /*
          * A higher value of y shifts the birds initial postition lower on the screen
          * A higher x shifts the birds initial position towards the right side of the screen
          * Width and height match the images dimensions in order to detect any collisions, and it affects the jumps
          * if the width and height are not properly recorded
          */
-        x = Integer.parseInt(prop.getProperty("character.x")); 
-        y = Integer.parseInt(prop.getProperty("character.y")); 
-        width = Integer.parseInt(prop.getProperty("character.width"));
-        height = Integer.parseInt(prop.getProperty("character.height"));
-        rotation = Float.parseFloat(prop.getProperty("character.rotation"));
-        yVelocity = Integer.parseInt(prop.getProperty("character.yVelocity"));
-        gravity = Float.parseFloat(prop.getProperty("character.gravity"));
-        jumpDelay = Integer.parseInt(prop.getProperty("character.jumpDelay"));
-        isDead = Boolean.parseBoolean(prop.getProperty("character.isDead"));
-        imageName = prop.getProperty("character.imageName");
+        
+        x = Integer.parseInt(Window.prop.getProperty("character.x")); 
+        y = Integer.parseInt(Window.prop.getProperty("character.y")); 
+        width = Integer.parseInt(Window.prop.getProperty("character.width"));
+        height = Integer.parseInt(Window.prop.getProperty("character.height"));
+        rotation = Float.parseFloat(Window.prop.getProperty("character.rotation"));
+        yVelocity = Integer.parseInt(Window.prop.getProperty("character.yVelocity"));
+        gravity = Float.parseFloat(Window.prop.getProperty("character.gravity"));
+        jumpDelay = Integer.parseInt(Window.prop.getProperty("character.jumpDelay"));
+        isDead = Boolean.parseBoolean(Window.prop.getProperty("character.isDead"));
+        imageName = Window.prop.getProperty("character.imageName");
 
         keyboard = Keyboard.getInstance();
     }

@@ -26,22 +26,6 @@ public class GameRunner {
     public Boolean started;
 
     public GameRunner() {
-        try (InputStream input = new FileInputStream("config.properties")) {
-            prop = new Properties();
-
-            // load a properties file
-            prop.load(input);
-
-            // get the property value and print it out
-            System.out.println(prop.getProperty("x"));
-            System.out.println(prop.getProperty("y"));
-            System.out.println(prop.getProperty("isDead"));
-            System.out.println(prop.getProperty("imageName"));
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }  
-
         keyboard = Keyboard.getInstance();
         restart();
     }
@@ -56,7 +40,7 @@ public class GameRunner {
         restartDelay = 0;
         pipeDelay = 0;
 
-        character = new Characters(prop);
+        character = new Characters();
         pipes = new ArrayList<Obstacles>();
     }
 
