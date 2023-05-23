@@ -145,7 +145,7 @@ public class GameRunner {
         for (Obstacles pipe : pipes) {
             if (pipe.collides(bird.x, bird.y, bird.width, bird.height)) {
                 gameover = true;
-                bird.dead = true;
+                bird.isDead = true;
             } else if (pipe.x == bird.x && pipe.orientation.equalsIgnoreCase("south")) {
                 score++;
             }
