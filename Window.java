@@ -20,4 +20,5 @@ public class Window {
         frame.setResizable(false);
         frame.setSize(WIDTH, HEIGHT);
     }
+    
 }
