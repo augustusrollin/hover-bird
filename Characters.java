@@ -1,7 +1,7 @@
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
-
+//birds
 public class Characters {
 
     public int x;
