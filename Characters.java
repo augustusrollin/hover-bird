@@ -1,6 +1,7 @@
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
+import java.util.Properties;
 
 public class Characters {
 
@@ -8,47 +9,51 @@ public class Characters {
     public int y;
     public int width;
     public int height;
-
-    public String imageName;
-
     public boolean isDead;
 
-    public double yvelocity;
-    public double gravity;
-
+    private String imageName;
+    private double yVelocity;
+    private double gravity;
     private int jumpDelay;
     private double rotation;
-
     private Image image;
     private Keyboard keyboard;
 
-    public Characters() {
-        x = 100;
-        y = 150;
-        yvelocity = 0;
-        width = 45;
-        height = 32;
-        gravity = 0.5;
-        jumpDelay = 0;
-        rotation = 5.0;
-        isDead = false;
-        imageName = "bird";
+    public Characters() {}
+
+    public Characters(Properties prop) {
+        /*
+         * A higher value of y shifts the birds initial postition lower on the screen
+         * A higher x shifts the birds initial position towards the right side of the screen
+         * Width and height match the images dimensions in order to detect any collisions, and it affects the jumps
+         * if the width and height are not properly recorded
+         */
+        x = Integer.parseInt(prop.getProperty("character.x")); 
+        y = Integer.parseInt(prop.getProperty("character.y")); 
+        width = Integer.parseInt(prop.getProperty("character.width"));
+        height = Integer.parseInt(prop.getProperty("character.height"));
+        rotation = Float.parseFloat(prop.getProperty("character.rotation"));
+        yVelocity = Integer.parseInt(prop.getProperty("character.yVelocity"));
+        gravity = Float.parseFloat(prop.getProperty("character.gravity"));
+        jumpDelay = Integer.parseInt(prop.getProperty("character.jumpDelay"));
+        isDead = Boolean.parseBoolean(prop.getProperty("character.isDead"));
+        imageName = prop.getProperty("character.imageName");
 
         keyboard = Keyboard.getInstance();
     }
 
     public void update() {
-        yvelocity += gravity;
+        yVelocity += gravity;
 
         if (jumpDelay > 0)
             jumpDelay--;
 
         if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0) {
-            yvelocity = -10;
+            yVelocity = -10;
             jumpDelay = 10;
         }
 
-        y += (int)yvelocity;
+        y += (int)yVelocity;
     }
 
     public Render getRender() {
@@ -61,7 +66,7 @@ public class Characters {
         }
         r.image = image;
 
-        rotation = (90 * (yvelocity + 20) / 20) - 90;
+        rotation = (90 * (yVelocity + 20) / 20) - 90;
         rotation = rotation * Math.PI / 180;
 
         if (rotation > Math.PI / 2)
