@@ -1,8 +1,5 @@
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 public class GameRunner {

@@ -17,14 +17,13 @@ public class Characters {
     private Image image;
     private Keyboard keyboard;
 
-    public Characters() {
+    public Characters() {   
         /*
-         * A higher value of y shifts the birds initial postition lower on the screen
-         * A higher x shifts the birds initial position towards the right side of the screen
-         * Width and height match the images dimensions in order to detect any collisions, and it affects the jumps
-         * if the width and height are not properly recorded
-         */
-        
+        * A higher value of y shifts the birds initial postition lower on the screen
+        * A higher x shifts the birds initial position towards the right side of the screen
+        * Width and height match the images dimensions in order to detect any collisions, and it affects the jumps
+        * if the width and height are not properly recorded
+        */
         x = Integer.parseInt(Window.prop.getProperty("character.x")); 
         y = Integer.parseInt(Window.prop.getProperty("character.y")); 
         width = Integer.parseInt(Window.prop.getProperty("character.width"));
