@@ -64,7 +64,7 @@ public class GameRunner {
 
     public ArrayList<Render> getRenders() {
         ArrayList<Render> renders = new ArrayList<Render>();
-        renders.add(new Render(0, 0, "images/background.png"));
+        renders.add(new Render(0, 0, "images/monkeybackground2.png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
         renders.add(new Render(0, 0, "images/foreground.png"));
