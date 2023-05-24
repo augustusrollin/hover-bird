@@ -1,9 +1,12 @@
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class GameRunner {
 
     public static final int PIPE_DELAY = 100;
+
+    private Properties prop;
 
     private Boolean paused;
 
@@ -61,7 +64,7 @@ public class GameRunner {
 
     public ArrayList<Render> getRenders() {
         ArrayList<Render> renders = new ArrayList<Render>();
-        renders.add(new Render(0, 0, "images/background.png"));
+        renders.add(new Render(0, 0, "images/monkeybackground2.png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
         renders.add(new Render(0, 0, "images/foreground.png"));
