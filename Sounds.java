@@ -9,5 +9,5 @@ public class Sounds {
     }
     public void setSoundFilePath(String soundFilePath){
         soundFilePath = soundFilePath;
-    }
+    } 
 }
