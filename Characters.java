@@ -1,10 +1,8 @@
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
-import java.util.Properties;
 
 public class Characters {
-
     public int x;
     public int y;
     public int width;
