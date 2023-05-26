@@ -7,7 +7,7 @@ public class Obstacles {
     public int y;
     public int width;
     public int height;
-    public int speed = 5;
+    public double speed = 15;
 
     public String orientation;
 
@@ -19,19 +19,20 @@ public class Obstacles {
     }
 
     public void reset() {
-        width = 66;
+        width = 0;
         height = 400;
         x = Window.WIDTH + 2;
         Random rand = new Random();
         if (orientation.equals("south")) {
             // y = -(int) (Math.random() * 120) - height / 4;
-            // y = (int) (rand.nextInt(201) + rand.nextInt(201)) - height / 2;
-            y = 0;
+            y = (int) (rand.nextInt(201) + rand.nextInt(201)) - height / 2;
+            // y = 0;
         }
     }
 
     public void update() {
         x -= speed;
+        // speed += 0.01;
     }
 
     public boolean collides(int _x, int _y, int _width, int _height) {

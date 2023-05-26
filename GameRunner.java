@@ -4,8 +4,8 @@ import java.util.Properties;
 
 public class GameRunner {
 
-    public static final int PIPE_DELAY = 100;
-
+    // public static final int PIPE_DELAY = 100;
+    public static final int PIPE_DELAY = 30;
     private Properties prop;
 
     private Boolean paused;
