@@ -1,6 +1,7 @@
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
+
 //birds
 public class Characters {
     public int x;
@@ -17,15 +18,17 @@ public class Characters {
     private Image image;
     private Keyboard keyboard;
 
-    public Characters() {   
+    public Characters() {
         /*
-        * A higher value of y shifts the birds initial postition lower on the screen
-        * A higher x shifts the birds initial position towards the right side of the screen
-        * Width and height match the images dimensions in order to detect any collisions, and it affects the jumps
-        * if the width and height are not properly recorded
-        */
-        x = Integer.parseInt(Window.prop.getProperty("character.x")); 
-        y = Integer.parseInt(Window.prop.getProperty("character.y")); 
+         * A higher value of y shifts the birds initial postition lower on the screen
+         * A higher x shifts the birds initial position towards the right side of the
+         * screen
+         * Width and height match the images dimensions in order to detect any
+         * collisions, and it affects the jumps
+         * if the width and height are not properly recorded
+         */
+        x = Integer.parseInt(Window.prop.getProperty("character.x"));
+        y = Integer.parseInt(Window.prop.getProperty("character.y"));
         width = Integer.parseInt(Window.prop.getProperty("character.width"));
         height = Integer.parseInt(Window.prop.getProperty("character.height"));
         rotation = Float.parseFloat(Window.prop.getProperty("character.rotation"));
@@ -39,17 +42,19 @@ public class Characters {
     }
 
     public void update() {
-        yVelocity += gravity;
-
+        // yVelocity += gravity;
         if (jumpDelay > 0)
             jumpDelay--;
 
-        if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0) {
-            yVelocity = -10;
-            jumpDelay = 10;
+        if (!isDead && keyboard.isDown(KeyEvent.VK_DOWN) && jumpDelay <= 0) {
+            // yVelocity = -10;
+            y += 5;
+            jumpDelay = 1;
+        } else if (!isDead && keyboard.isDown(KeyEvent.VK_UP) && jumpDelay <= 0) {
+            y -= 5;
+            jumpDelay = 1;
         }
-
-        y += (int)yVelocity;
+        // y += (int) yVelocity;
     }
 
     public Render getRender() {
@@ -58,13 +63,13 @@ public class Characters {
         r.y = y;
 
         if (image == null) {
-            image = Util.loadImage("images/"+imageName+".png");     
+            image = Util.loadImage("images/" + imageName + ".png");
         }
         r.image = image;
 
-        rotation = (90 * (yVelocity + 20) / 20) - 90;
-        rotation = rotation * Math.PI / 180;
-
+        // rotation = (90 * (yVelocity + 20) / 20) - 90;
+        // rotation = rotation * Math.PI / 180;
+        rotation = 0;
         if (rotation > Math.PI / 2)
             rotation = Math.PI / 2;
 
