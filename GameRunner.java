@@ -141,7 +141,7 @@ public class GameRunner {
 
             //northPipe.y = southPipe.y + southPipe.height + 175;
             Random rand = new Random();
-            southPipe.y = -rand.nextInt(401);
+            southPipe.y = -rand.nextInt(southPipe.height);
             northPipe.y = southPipe.y + southPipe.height + 300;
         }
 
