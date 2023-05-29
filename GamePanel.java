@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable {
                     g.drawImage(r.image, r.x, r.y, null);
 
 
-            g2D.setColor(Color.BLACK);
+            g2D.setColor(Color.WHITE);
 
             if (!game.started) {
                 g2D.setFont(new Font("TimesRoman", Font.PLAIN, 20));
@@ -52,7 +52,7 @@ public class GamePanel extends JPanel implements Runnable {
         try {
             while (true) {
                 update();
-                Thread.sleep(1);
+                Thread.sleep(10);
             }
         }
         catch (Exception e) {
