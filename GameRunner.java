@@ -1,7 +1,13 @@
+import java.awt.AWTException;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Random;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 public class GameRunner {
 
     // public static final int PIPE_DELAY = 100;
@@ -20,7 +26,8 @@ public class GameRunner {
 
     public int score;
     public Boolean gameover;
-    public Boolean started;
+    public static Boolean started;
+    public boolean startMusic = true;
 
     public GameRunner() {
         keyboard = Keyboard.getInstance();
@@ -67,7 +74,7 @@ public class GameRunner {
         renders.add(new Render(0, 0, "images/FuturisticSpaceBackground.png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
-        renders.add(new Render(0, 720, "images/thin_background.png"));
+        // renders.add(new Render(0, 720, "images/thin_background.png"));
         renders.add(new Render(0, 0, "images/SpaceBackground2.png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
@@ -79,6 +86,21 @@ public class GameRunner {
     private void watchForStart() {
         if (!started && keyboard.isDown(KeyEvent.VK_SPACE)) {
             started = true;
+            if (startMusic) {
+                startMusic = false;
+                Sounds music = new Sounds();
+                try {
+                    music.playSound("crazyMusic.wav");
+                } catch (AWTException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedAudioFileException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (LineUnavailableException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -95,10 +117,12 @@ public class GameRunner {
     private void watchForReset() {
         if (restartDelay > 0)
             restartDelay--;
-
+        // Obstacles.characterBoost = 0;
         if (keyboard.isDown(KeyEvent.VK_R) && restartDelay <= 0) {
             restart();
             restartDelay = 10;
+            Obstacles.characterBoost = 0;
+            Characters.boosted = false;
             return;
         }
     }
@@ -139,9 +163,9 @@ public class GameRunner {
                 southPipe.reset();
             }
 
-            //northPipe.y = southPipe.y + southPipe.height + 175;
+            // northPipe.y = southPipe.y + southPipe.height + 175;
             Random rand = new Random();
-            southPipe.y = -rand.nextInt(southPipe.height);
+            southPipe.y = -rand.nextInt(southPipe.height - 211);
             northPipe.y = southPipe.y + southPipe.height + 300;
         }
 
@@ -156,8 +180,11 @@ public class GameRunner {
             if (pipe.collides(character.x, character.y, character.width, character.height)) {
                 gameover = true;
                 character.isDead = true;
+                Characters.rocketFuel = 10;
+                Obstacles.characterBoost = 0;
             } else if (pipe.x == character.x && pipe.orientation.equalsIgnoreCase("south")) {
                 score++;
+                System.out.println(Characters.rocketFuel);
             }
         }
 

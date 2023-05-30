@@ -32,10 +32,11 @@ public class Window {
             ex.printStackTrace();
         }
         JFrame frame = new JFrame();
+        // frame.setUndecorated(true);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
-        frame.setLocation(0,0);
+        frame.setLocation(-10, 0);
 
         Keyboard keyboard = Keyboard.getInstance();
         frame.addKeyListener(keyboard);
@@ -44,8 +45,5 @@ public class Window {
         frame.add(panel);
         frame.setResizable(false);
         frame.setSize(WIDTH, HEIGHT);
-        Sounds music = new Sounds();
-        music.playSound("peacefulSong.wav");
     }
-
 }

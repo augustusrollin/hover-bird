@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
-
     private GameRunner game;
 
     public GamePanel() {
@@ -16,7 +15,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     protected void paintComponent(Graphics g) {
-        try{
+        try {
             super.paintComponent(g);
 
             Graphics2D g2D = (Graphics2D) g;
@@ -26,8 +25,7 @@ public class GamePanel extends JPanel implements Runnable {
                 else
                     g.drawImage(r.image, r.x, r.y, null);
 
-
-            g2D.setColor(Color.BLACK);
+            g2D.setColor(Color.WHITE);
 
             if (!game.started) {
                 g2D.setFont(new Font("TimesRoman", Font.PLAIN, 20));
@@ -41,9 +39,9 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.setFont(new Font("TimesRoman", Font.PLAIN, 20));
                 g2D.drawString("Press R to restart", 150, 240);
             }
-        // } catch(javax.imageio.IIOException ie){
-        //     System.out.println("Image crap");
-        } catch(Exception e){
+            // } catch(javax.imageio.IIOException ie){
+            // System.out.println("Image crap");
+        } catch (Exception e) {
             System.out.println("Error occured");
         }
     }
@@ -52,10 +50,9 @@ public class GamePanel extends JPanel implements Runnable {
         try {
             while (true) {
                 update();
-                Thread.sleep(25);
+                Thread.sleep(10);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

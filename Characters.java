@@ -9,12 +9,13 @@ public class Characters {
     public int width;
     public int height;
     public boolean isDead;
-
+    public static boolean boosted;
     private String imageName;
     private double yVelocity;
     private double gravity;
     private int jumpDelay;
     private double rotation;
+    public static int rocketFuel = 10;
     private Image image;
     private Keyboard keyboard;
 
@@ -37,21 +38,32 @@ public class Characters {
         jumpDelay = Integer.parseInt(Window.prop.getProperty("character.jumpDelay"));
         isDead = Boolean.parseBoolean(Window.prop.getProperty("character.isDead"));
         imageName = Window.prop.getProperty("character.imageName");
-
+        boosted = false;
         keyboard = Keyboard.getInstance();
     }
 
     public void update() {
         // yVelocity += gravity;
+        // boolean resetBoost = false;
         if (jumpDelay > 0)
             jumpDelay--;
 
         if (!isDead && keyboard.isDown(KeyEvent.VK_DOWN) && jumpDelay <= 0) {
             // yVelocity = -10;
-            y += 5;
+            y += 7;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_UP) && jumpDelay <= 0) {
-            y -= 5;
+            y -= 7;
+            jumpDelay = 1;
+        } else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0 && GameRunner.started) {
+            if (rocketFuel > 0) {
+                Obstacles.characterBoost = 7;
+                boosted = true;
+                rocketFuel--;
+                // imageName = "monkeyBackground";
+            } else {
+                Obstacles.characterBoost = 0;
+            }
             jumpDelay = 1;
         }
         // y += (int) yVelocity;
