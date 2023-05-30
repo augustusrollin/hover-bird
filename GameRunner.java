@@ -6,8 +6,6 @@ import java.util.Properties;
 import java.util.Random;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import java.awt.Point;
-import java.awt.Dimension;
 
 public class GameRunner {
 
