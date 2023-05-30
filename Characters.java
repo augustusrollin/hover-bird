@@ -1,14 +1,15 @@
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
+import java.awt.Point;
+import java.awt.Dimension;
 
 //birds
 public class Characters {
-    public int x;
-    public int y;
-    public int width;
-    public int height;
+    public Point position;
+    public Dimension boundingBox;
     public boolean isDead;
+
     public static boolean boosted;
     private String imageName;
     private double yVelocity;
@@ -19,7 +20,7 @@ public class Characters {
     private Image image;
     private Keyboard keyboard;
 
-    public Characters() {
+    public Characters(String imageName, Dimension boundingBox) {
         /*
          * A higher value of y shifts the birds initial postition lower on the screen
          * A higher x shifts the birds initial position towards the right side of the
@@ -28,16 +29,20 @@ public class Characters {
          * collisions, and it affects the jumps
          * if the width and height are not properly recorded
          */
-        x = Integer.parseInt(Window.prop.getProperty("character.x"));
-        y = Integer.parseInt(Window.prop.getProperty("character.y"));
-        width = Integer.parseInt(Window.prop.getProperty("character.width"));
-        height = Integer.parseInt(Window.prop.getProperty("character.height"));
+        position = new Point(
+                Integer.parseInt(Window.prop.getProperty("character.x")),
+                Integer.parseInt(Window.prop.getProperty("character.y")));
+        this.boundingBox = boundingBox;
+        // boundingBox = new Dimension(
+        // Integer.parseInt(Window.prop.getProperty("character.width")),
+        // Integer.parseInt(Window.prop.getProperty("character.height"))
+        // );
         rotation = Float.parseFloat(Window.prop.getProperty("character.rotation"));
         yVelocity = Integer.parseInt(Window.prop.getProperty("character.yVelocity"));
         gravity = Float.parseFloat(Window.prop.getProperty("character.gravity"));
         jumpDelay = Integer.parseInt(Window.prop.getProperty("character.jumpDelay"));
         isDead = Boolean.parseBoolean(Window.prop.getProperty("character.isDead"));
-        imageName = Window.prop.getProperty("character.imageName");
+        this.imageName = imageName;
         boosted = false;
         keyboard = Keyboard.getInstance();
     }
@@ -49,33 +54,35 @@ public class Characters {
             jumpDelay--;
 
         if (!isDead && keyboard.isDown(KeyEvent.VK_DOWN) && jumpDelay <= 0) {
-            // yVelocity = -10;
-            y += 7;
+            yVelocity = -10;
+            position.y += 5;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_UP) && jumpDelay <= 0) {
-            y -= 7;
+            position.y -= 5;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0 && GameRunner.started) {
-            if (rocketFuel > 0) {
-                Obstacles.characterBoost = 7;
-                boosted = true;
-                rocketFuel--;
-                // imageName = "monkeyBackground";
-            } else {
-                Obstacles.characterBoost = 0;
-            }
-            jumpDelay = 1;
+            // if (rocketFuel > 0) {
+            // Obstacles.characterBoost = 7;
+            // boosted = true;
+            // rocketFuel--;
+            // imageName = "monkeyBackground";
+            // } else {
+            // Obstacles.characterBoost = 0;
+            // }
+            // jumpDelay = 1;
         }
-        // y += (int) yVelocity;
+        // position.y += (int) yVelocity;
     }
 
     public Render getRender() {
         Render r = new Render();
-        r.x = x;
-        r.y = y;
+        r.x = position.x;
+        r.y = position.y;
 
         if (image == null) {
             image = Util.loadImage("images/" + imageName + ".png");
+            // boundingBox = new Dimension(image.getWidth(null), image.getHeight(null));
+            // System.out.println(boundingBox);
         }
         r.image = image;
 
@@ -86,9 +93,9 @@ public class Characters {
             rotation = Math.PI / 2;
 
         r.transform = new AffineTransform();
-        r.transform.translate(x + width / 2, y + height / 2);
+        r.transform.translate(position.x + boundingBox.width / 2, position.y + boundingBox.height / 2);
         r.transform.rotate(rotation);
-        r.transform.translate(-width / 2, -height / 2);
+        r.transform.translate(-1 * boundingBox.width / 2, -1 * boundingBox.height / 2);
 
         return r;
     }
