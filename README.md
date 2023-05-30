@@ -23,5 +23,5 @@ chmod +x run
 ![view](./images/READMELoadingScreen.png)
 ![view](./images/READMESelection.png)
 ![view](./images/READMEFlappyBird.png)
-
-
+![view](./images/READMESelect.png)
+![view](./images/READMEFuture.png)
