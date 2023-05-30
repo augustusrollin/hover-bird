@@ -34,6 +34,9 @@ git commit -m ''
 
 # locally commits are pushed to the server
 git push
+
+# creates a branch
+git checkout -b BranchName
 ```
 
 ![view](./images/READMELoadingScreen.png)
