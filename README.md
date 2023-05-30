@@ -30,7 +30,7 @@ git status
 git add .
 
 # commits all the staged changes locally
-git commit -m ''
+git commit -m 'Message'
 
 # locally commits are pushed to the server
 git push
