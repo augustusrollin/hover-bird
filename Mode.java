@@ -2,6 +2,7 @@ import java.awt.Dimension;
 
 public class Mode {
     public String modeName;
+    public String modeBackground;
     public String characterImage;
     public String obstacleImageNorth;
     public String obstacleImageSouth;
@@ -10,6 +11,7 @@ public class Mode {
 
     public Mode(){
         modeName = "";
+        modeBackground = "";
         characterImage = "";
         obstacleImageNorth = "";
         obstacleImageSouth = "";
@@ -19,6 +21,7 @@ public class Mode {
     public static Mode futureMode(){
         Mode m = new Mode();
         m.modeName = "future";
+        m.modeBackground = "SpaceBackground2";
         m.characterImage = "SpaceshipTestWorking";
         m.obstacleImageNorth = "cutskyscraperTestnorth";
         m.obstacleImageSouth = "cutskyscraperTestsouth";
@@ -29,15 +32,17 @@ public class Mode {
     public static Mode originalMode(){
         Mode m = new Mode();
         m.modeName = "original";
+        m.modeBackground = "background";
         m.characterImage = "bird";
         m.obstacleImageNorth = "";
         m.obstacleImageSouth = "";
-        m.boundingBox = new Dimension(32,40);
+        m.boundingBox = new Dimension(180,160);
         return m;
     }
     public static Mode rainbowMode(){
         Mode m = new Mode();
         m.modeName = "rainbow";
+        m.modeBackground = "SpaceBackground2";
         m.characterImage = "";
         m.obstacleImageNorth = "";
         m.obstacleImageSouth = "";
@@ -47,6 +52,7 @@ public class Mode {
     public static Mode jungleMode(){
         Mode m = new Mode();
         m.modeName = "jungle";
+        m.modeBackground = "monkeybackground2";
         m.characterImage = "";
         m.obstacleImageNorth = "";
         m.obstacleImageSouth = "";
