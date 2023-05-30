@@ -23,9 +23,6 @@ public class Sounds {
         clip.start();
     }
 
-    void playSound() {
-    }
-
     public String getSoundFilePath() {
         return soundFilePath;
     }

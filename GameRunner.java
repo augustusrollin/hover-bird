@@ -95,7 +95,7 @@ public class GameRunner {
                 startMusic = false;
                 Sounds music = new Sounds();
                 try {
-                    music.playSound("crazyMusic.wav");
+                    music.playSound("music/crazyMusic.wav");
                 } catch (AWTException e) {
                     e.printStackTrace();
                 } catch (UnsupportedAudioFileException e) {

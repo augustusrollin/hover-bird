@@ -23,7 +23,7 @@ public class Util {
 			}
 		} 
 		catch (IOException e) {
-		    e.printStackTrace();
+			e.printStackTrace();
         }
 
 		return image;

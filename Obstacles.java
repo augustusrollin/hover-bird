@@ -50,7 +50,7 @@ public class Obstacles {
             if (orientation.equals("south") &&
                     (characterPosition.y < position.y + boundingBox.height)) {
                 try {
-                    audioPlayer.playSound("explosionSound1.wav");
+                    audioPlayer.playSound("music/explosionSound1.wav");
                 } catch (AWTException e) {
                     e.printStackTrace();
                 } catch (UnsupportedAudioFileException e) {
@@ -64,7 +64,7 @@ public class Obstacles {
             } else if (orientation.equals("north") &&
                     (characterPosition.y + characterDimension.height > position.y)) {
                 try {
-                    audioPlayer.playSound("explosionSound1.wav");
+                    audioPlayer.playSound("music/explosionSound1.wav");
                 } catch (AWTException | UnsupportedAudioFileException | IOException | LineUnavailableException e) {
                     e.printStackTrace();
                 }
