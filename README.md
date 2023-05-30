@@ -18,7 +18,23 @@ chmod +x run
 # run the program (1st it compiles, then runs java pointed at the main class aka Window)
 ./run
 ```
+## How to use the terminal
+```zsh
+# pulls all the latest code
+git pull
 
+# shows status of files locally
+git status
+
+# stages all files that are changed
+git add .
+
+# commits all the staged changes locally
+git commit -m ''
+
+# locally commits are pushed to the server
+git push
+```
 
 ![view](./images/READMELoadingScreen.png)
 ![view](./images/READMESelection.png)
