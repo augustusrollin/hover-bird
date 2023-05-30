@@ -2,6 +2,8 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Random;
+import java.awt.Point;
+
 public class GameRunner {
 
     public static final int PIPE_DELAY = 100;
@@ -17,6 +19,7 @@ public class GameRunner {
     private Characters character;
     private ArrayList<Obstacles> pipes;
     private Keyboard keyboard;
+    private Mode mode;
 
     public int score;
     public Boolean gameover;
@@ -24,10 +27,13 @@ public class GameRunner {
 
     public GameRunner() {
         keyboard = Keyboard.getInstance();
+        mode = Mode.futureMode();
+        mode = Mode.originalMode();
         restart();
     }
 
     public void restart() {
+        // put mode in here
         paused = false;
         started = false;
         gameover = false;
@@ -37,13 +43,13 @@ public class GameRunner {
         restartDelay = 0;
         pipeDelay = 0;
 
-        character = new Characters();
+        character = new Characters(mode.characterImage, mode.boundingBox);
         pipes = new ArrayList<Obstacles>();
     }
 
     public void update() {
         watchForStart();
-
+        watchForMode();
         if (!started)
             return;
 
@@ -82,6 +88,28 @@ public class GameRunner {
         }
     }
 
+    private void watchForMode() {
+        if(!started){
+
+            if (keyboard.isDown(KeyEvent.VK_O)) {
+                mode = Mode.originalMode();
+                restart();
+            }
+            else if (keyboard.isDown(KeyEvent.VK_F)) {
+                mode = Mode.futureMode();
+                restart();
+            }
+            else if (keyboard.isDown(KeyEvent.VK_J)) {
+                mode = Mode.jungleMode();
+                restart();
+            }
+            else if (keyboard.isDown(KeyEvent.VK_B)) {
+                mode = Mode.rainbowMode();
+                restart();
+            }
+        }
+    }
+
     private void watchForPause() {
         if (pauseDelay > 0)
             pauseDelay--;
@@ -113,7 +141,7 @@ public class GameRunner {
 
             // Look for pipes off the screen
             for (Obstacles pipe : pipes) {
-                if (pipe.x - pipe.width < 0) {
+                if (pipe.position.x - pipe.boundingBox.width < 0) {
                     if (northPipe == null) {
                         northPipe = pipe;
                     } else if (southPipe == null) {
@@ -141,8 +169,8 @@ public class GameRunner {
 
             // northPipe.y = southPipe.y + southPipe.height + 175;
             Random rand = new Random();
-            southPipe.y = -rand.nextInt(southPipe.height);
-            northPipe.y = southPipe.y + southPipe.height + 300;
+            southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
+            northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 300;
         }
 
         for (Obstacles pipe : pipes) {
@@ -153,18 +181,18 @@ public class GameRunner {
     private void checkForCollisions() {
 
         for (Obstacles pipe : pipes) {
-            if (pipe.collides(character.x, character.y, character.width, character.height)) {
+            if (pipe.collides(character.position, character.boundingBox)) {
                 gameover = true;
                 character.isDead = true;
-            } else if (pipe.x == character.x && pipe.orientation.equalsIgnoreCase("south")) {
+            } else if (pipe.position.x == character.position.x && pipe.orientation.equalsIgnoreCase("south")) {
                 score++;
             }
         }
 
         // Ground + Bird collision
-        if (character.y + character.height > Window.HEIGHT - 80) {
+        if (character.position.y + character.boundingBox.height > Window.HEIGHT - 80) {
             gameover = true;
-            character.y = Window.HEIGHT - 80 - character.height;
+            character.position.y = Window.HEIGHT - 80 - character.boundingBox.height;
         }
     }
 }

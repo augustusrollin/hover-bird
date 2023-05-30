@@ -1,48 +1,58 @@
 import java.awt.Image;
 import java.util.Random;
+import java.awt.Point;
+import java.awt.Dimension;
 
 public class Obstacles {
 
-    public int x;
-    public int y;
-    public int width;
-    public int height;
+    public Point position;
+    public Dimension boundingBox;
+
     public int speed = 15;
-
     public String orientation;
-
     private Image image;
 
     public Obstacles(String orientation) {
         this.orientation = orientation;
+        position = new Point(0, 0);
+        boundingBox = new Dimension(0, 0);
+
         reset();
     }
 
     public void reset() {
-        width = 66;
-        height = 400;
-        x = Window.WIDTH + 2;
+        boundingBox.width = 66;
+        boundingBox.height = 400;
+        position.x = Window.WIDTH + 2;
         Random rand = new Random();
         if (orientation.equals("south")) {
             // y = -(int) (Math.random() * 120) - height / 4;
-            y = (int) (rand.nextInt(201) + rand.nextInt(201)) - height / 2;
-            //y = 0;
+            position.y = (int) (rand.nextInt(201) + rand.nextInt(201)) - boundingBox.height / 2;
+            // y = 0;
         }
     }
 
     public void update() {
-        x -= speed;
+        position.x -= speed;
     }
 
-    public boolean collides(int _x, int _y, int _width, int _height) {
+    /**
+     * @param characterPosition
+     * @param characterDimension
+     * @return
+     */
+    public boolean collides(Point characterPosition, Dimension characterDimension) {
 
         int margin = 2;
 
-        if (_x + _width - margin > x && _x + margin < x + width) {
-
-            if (orientation.equals("south") && _y < y + height) {
+        if (characterPosition.x + characterDimension.width - margin > position.x &&
+                characterPosition.x + margin < position.x + boundingBox.width) {
+            if (orientation.equals("south") &&
+                (characterPosition.y < position.y + boundingBox.height)) {
                 return true;
-            } else if (orientation.equals("north") && _y + _height > y) {
+            } else if (orientation.equals("north") &&
+                (characterPosition.y + characterDimension.height > position.y)
+                ) {
                 return true;
             }
         }
@@ -52,8 +62,8 @@ public class Obstacles {
 
     public Render getRender() {
         Render r = new Render();
-        r.x = x;
-        r.y = y;
+        r.x = position.x;
+        r.y = position.y;
 
         if (image == null) {
             // image = Util.loadImage("images/pipe-" + orientation + ".png");
