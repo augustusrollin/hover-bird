@@ -37,6 +37,9 @@ git push
 
 # creates a branch
 git checkout -b BranchName
+
+# switch branch
+git checkout BranchName
 ```
 
 ![view](./images/READMELoadingScreen.png)
