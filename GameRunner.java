@@ -1,7 +1,7 @@
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Properties;
-
+import java.util.Random;
 public class GameRunner {
 
     // public static final int PIPE_DELAY = 100;
@@ -64,6 +64,10 @@ public class GameRunner {
 
     public ArrayList<Render> getRenders() {
         ArrayList<Render> renders = new ArrayList<Render>();
+        renders.add(new Render(0, 0, "images/FuturisticSpaceBackground.png"));
+        for (Obstacles pipe : pipes)
+            renders.add(pipe.getRender());
+        renders.add(new Render(0, 720, "images/thin_background.png"));
         renders.add(new Render(0, 0, "images/SpaceBackground2.png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
@@ -135,7 +139,10 @@ public class GameRunner {
                 southPipe.reset();
             }
 
-            northPipe.y = southPipe.y + southPipe.height + 175;
+            //northPipe.y = southPipe.y + southPipe.height + 175;
+            Random rand = new Random();
+            southPipe.y = -rand.nextInt(southPipe.height);
+            northPipe.y = southPipe.y + southPipe.height + 300;
         }
 
         for (Obstacles pipe : pipes) {

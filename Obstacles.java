@@ -1,5 +1,9 @@
-import java.awt.Image;
+import java.util.ArrayList;
 import java.util.Random;
+import java.awt.*;
+import java.io.*;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Obstacles {
 
@@ -7,7 +11,9 @@ public class Obstacles {
     public int y;
     public int width;
     public int height;
-    public double speed = 15;
+    int horizDiff = 20;
+    public static double speed = 20;
+    public static double characterBoost = 0;
 
     public String orientation;
 
@@ -27,23 +33,39 @@ public class Obstacles {
             // y = -(int) (Math.random() * 120) - height / 4;
             y = (int) (rand.nextInt(201) + rand.nextInt(201)) - height / 2;
             // y = 0;
+            // y = 0;
         }
     }
 
     public void update() {
-        x -= speed;
+        x -= (speed + characterBoost);
+        // speed += 0.1;
         // speed += 0.01;
     }
 
     public boolean collides(int _x, int _y, int _width, int _height) {
-
         int margin = 2;
-
+        Sounds audioPlayer = new Sounds();
         if (_x + _width - margin > x && _x + margin < x + width) {
-
             if (orientation.equals("south") && _y < y + height) {
+                try {
+                    audioPlayer.playSound("explosionSound1.wav");
+                } catch (AWTException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedAudioFileException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (LineUnavailableException e) {
+                    e.printStackTrace();
+                }
                 return true;
             } else if (orientation.equals("north") && _y + _height > y) {
+                try {
+                    audioPlayer.playSound("explosionSound1.wav");
+                } catch (AWTException | UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                    e.printStackTrace();
+                }
                 return true;
             }
         }

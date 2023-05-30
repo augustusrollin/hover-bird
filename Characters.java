@@ -48,10 +48,10 @@ public class Characters {
 
         if (!isDead && keyboard.isDown(KeyEvent.VK_DOWN) && jumpDelay <= 0) {
             // yVelocity = -10;
-            y += 10;
+            y += 5;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_UP) && jumpDelay <= 0) {
-            y -= 10;
+            y -= 5;
             jumpDelay = 1;
         }
         // y += (int) yVelocity;
