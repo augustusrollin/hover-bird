@@ -5,7 +5,6 @@ public class Mode {
     public String modeBackground;
     public String characterImage;
     public String obstacleImage;
-    // public String obstacleImageSouth;
     public Dimension boundingBox;
     // public String musicFile;
 
@@ -14,7 +13,6 @@ public class Mode {
         modeBackground = "";
         characterImage = "";
         obstacleImage = "";
-        // obstacleImageSouth = "";
         boundingBox = new Dimension(0, 0);
     }
 
@@ -24,7 +22,6 @@ public class Mode {
         m.modeBackground = "SpaceBackground2";
         m.characterImage = "SpaceshipTestWorking";
         m.obstacleImage = "cutskyscraperTest";
-        // m.obstacleImageSouth = "cutskyscraperTest";
         m.boundingBox = new Dimension(180, 160);
         return m;
 
@@ -36,7 +33,6 @@ public class Mode {
         m.modeBackground = "background";
         m.characterImage = "bird";
         m.obstacleImage = "pipe-";
-        // m.obstacleImageSouth = "pipe-";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }
@@ -47,7 +43,6 @@ public class Mode {
         m.modeBackground = "rainbowbackground";
         m.characterImage = "";
         m.obstacleImage = "";
-        // m.obstacleImageSouth = "";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }
@@ -57,8 +52,7 @@ public class Mode {
         m.modeName = "jungle";
         m.modeBackground = "jungleBackground";
         m.characterImage = "monkey";
-        m.obstacleImage = "";
-        // m.obstacleImageSouth = "";
+        m.obstacleImage = "bananas";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }
