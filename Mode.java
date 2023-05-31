@@ -52,8 +52,9 @@ public class Mode {
         m.modeName = "jungle";
         m.modeBackground = "jungleBackground";
         m.characterImage = "monkey";
-        m.obstacleImage = "BANA";
+        m.obstacleImage = "BANA"; // happy banana
         m.boundingBox = new Dimension(248, 243);
         return m;
     }
 }
+
