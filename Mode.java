@@ -6,6 +6,7 @@ public class Mode {
     public String characterImage;
     public String obstacleImage;
     public Dimension boundingBox;
+    public String monkey;
     // public String musicFile;
 
     public Mode() {
@@ -52,8 +53,9 @@ public class Mode {
         m.modeName = "jungle";
         m.modeBackground = "jungleBackground";
         m.characterImage = "monkey";
-        m.obstacleImage = "BANA";
+        m.obstacleImage = "BANA"; // happy banana
         m.boundingBox = new Dimension(248, 243);
         return m;
     }
 }
+
