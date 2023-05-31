@@ -6,7 +6,6 @@ public class Mode {
     public String characterImage;
     public String obstacleImage;
     public Dimension boundingBox;
-    public String monkey;
     // public String musicFile;
 
     public Mode() {
