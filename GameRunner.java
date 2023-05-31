@@ -10,7 +10,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class GameRunner {
 
     // public static final int PIPE_DELAY = 100;
-    public static final int PIPE_DELAY = 30*Obstacles.speed/10;
+    public static final int PIPE_DELAY = 60/(Obstacles.speed/10);
     private Properties prop;
 
     private Boolean paused;

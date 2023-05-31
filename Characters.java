@@ -54,7 +54,7 @@ public class Characters {
             jumpDelay--;
 
         if (!isDead && keyboard.isDown(KeyEvent.VK_DOWN) && jumpDelay <= 0) {
-            yVelocity = -10;
+            //yVelocity = -10;
             position.y += 7;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_UP) && jumpDelay <= 0) {
