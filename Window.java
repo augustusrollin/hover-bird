@@ -32,7 +32,7 @@ public class Window {
             ex.printStackTrace();
         }
         JFrame frame = new JFrame();
-        // frame.setUndecorated(true);
+        frame.setUndecorated(true);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);

@@ -54,7 +54,7 @@ public class GamePanel extends JPanel implements Runnable {
         try {
             while (true) {
                 update();
-                Thread.sleep(7);
+                Thread.sleep(16);
             }
         } catch (Exception e) {
             e.printStackTrace();

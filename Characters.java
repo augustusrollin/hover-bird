@@ -55,10 +55,10 @@ public class Characters {
 
         if (!isDead && keyboard.isDown(KeyEvent.VK_DOWN) && jumpDelay <= 0) {
             yVelocity = -10;
-            position.y += 5;
+            position.y += 7;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_UP) && jumpDelay <= 0) {
-            position.y -= 5;
+            position.y -= 7;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0 && GameRunner.started) {
             // if (rocketFuel > 0) {

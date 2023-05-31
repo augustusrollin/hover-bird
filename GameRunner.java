@@ -10,7 +10,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class GameRunner {
 
     // public static final int PIPE_DELAY = 100;
-    public static final int PIPE_DELAY = 30;
+    public static final int PIPE_DELAY = 30*Obstacles.speed/10;
     private Properties prop;
 
     private Boolean paused;
@@ -188,8 +188,8 @@ public class GameRunner {
 
             // northPipe.y = southPipe.y + southPipe.height + 175;
             Random rand = new Random();
-            southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
-            northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 500;
+            southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height)-50;
+            northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
         }
 
         for (Obstacles pipe : pipes) {
