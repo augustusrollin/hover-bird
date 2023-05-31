@@ -4,8 +4,8 @@ public class Mode {
     public String modeName;
     public String modeBackground;
     public String characterImage;
-    public String obstacleImageNorth;
-    public String obstacleImageSouth;
+    public String obstacleImage;
+    // public String obstacleImageSouth;
     public Dimension boundingBox;
     // public String musicFile;
 
@@ -13,8 +13,8 @@ public class Mode {
         modeName = "";
         modeBackground = "";
         characterImage = "";
-        obstacleImageNorth = "";
-        obstacleImageSouth = "";
+        obstacleImage = "";
+        // obstacleImageSouth = "";
         boundingBox = new Dimension(0, 0);
     }
 
@@ -23,8 +23,8 @@ public class Mode {
         m.modeName = "future";
         m.modeBackground = "SpaceBackground2";
         m.characterImage = "SpaceshipTestWorking";
-        m.obstacleImageNorth = "cutskyscraperTestnorth";
-        m.obstacleImageSouth = "cutskyscraperTestsouth";
+        m.obstacleImage = "cutskyscraperTest";
+        // m.obstacleImageSouth = "cutskyscraperTest";
         m.boundingBox = new Dimension(180, 160);
         return m;
 
@@ -35,8 +35,8 @@ public class Mode {
         m.modeName = "original";
         m.modeBackground = "background";
         m.characterImage = "bird";
-        m.obstacleImageNorth = "";
-        m.obstacleImageSouth = "";
+        m.obstacleImage = "pipe-";
+        // m.obstacleImageSouth = "pipe-";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }
@@ -44,10 +44,10 @@ public class Mode {
     public static Mode rainbowMode() {
         Mode m = new Mode();
         m.modeName = "rainbow";
-        m.modeBackground = "SpaceBackground2";
+        m.modeBackground = "rainbowbackground";
         m.characterImage = "";
-        m.obstacleImageNorth = "";
-        m.obstacleImageSouth = "";
+        m.obstacleImage = "";
+        // m.obstacleImageSouth = "";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }
@@ -55,10 +55,10 @@ public class Mode {
     public static Mode jungleMode() {
         Mode m = new Mode();
         m.modeName = "jungle";
-        m.modeBackground = "monkeybackground2";
-        m.characterImage = "";
-        m.obstacleImageNorth = "";
-        m.obstacleImageSouth = "";
+        m.modeBackground = "jungleBackground";
+        m.characterImage = "monkey";
+        m.obstacleImage = "";
+        // m.obstacleImageSouth = "";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }

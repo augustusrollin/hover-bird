@@ -15,11 +15,13 @@ public class Obstacles {
 
     public String orientation;
     private Image image;
+    public String imageName;
 
-    public Obstacles(String orientation) {
+    public Obstacles(String orientation, String imageName) {
         this.orientation = orientation;
         position = new Point(0, 0);
         boundingBox = new Dimension(0, 0);
+        this.imageName=imageName;
         reset();
     }
 
@@ -81,7 +83,8 @@ public class Obstacles {
 
         if (image == null) {
             // image = Util.loadImage("images/pipe-" + orientation + ".png");
-            image = Util.loadImage("images/cutskyscraperTest" + orientation + ".png");
+            // mode.obstacleImage
+            image = Util.loadImage("images/"+imageName+ orientation + ".png");
         }
         r.image = image;
 

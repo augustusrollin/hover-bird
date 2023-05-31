@@ -32,7 +32,7 @@ public class GameRunner {
     public GameRunner() {
         keyboard = Keyboard.getInstance();
         mode = Mode.futureMode();
-        mode = Mode.originalMode();
+        // mode = Mode.originalMode();
         restart();
     }
 
@@ -74,11 +74,11 @@ public class GameRunner {
 
     public ArrayList<Render> getRenders() {
         ArrayList<Render> renders = new ArrayList<Render>();
-        renders.add(new Render(0, 0, "images/FuturisticSpaceBackground.png"));
+        // renders.add(new Render(0, 0, "images/FuturisticSpaceBackground.png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
         // renders.add(new Render(0, 720, "images/thin_background.png"));
-        renders.add(new Render(0, 0, "images/SpaceBackground2.png"));
+        renders.add(new Render(0, 0, "images/"+mode.modeBackground+".png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
         // renders.add(new Render(1000, 980, "images/BlackBar.png"));
@@ -171,7 +171,7 @@ public class GameRunner {
             }
 
             if (northPipe == null) {
-                Obstacles pipe = new Obstacles("north");
+                Obstacles pipe = new Obstacles("north", mode.obstacleImage);
                 pipes.add(pipe);
                 northPipe = pipe;
             } else {
@@ -179,7 +179,7 @@ public class GameRunner {
             }
 
             if (southPipe == null) {
-                Obstacles pipe = new Obstacles("south");
+                Obstacles pipe = new Obstacles("south", mode.obstacleImage);
                 pipes.add(pipe);
                 southPipe = pipe;
             } else {
