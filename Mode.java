@@ -42,7 +42,7 @@ public class Mode {
         m.modeName = "rainbow";
         m.modeBackground = "rainbowbackground";
         m.characterImage = "UnicornWorking";
-        m.obstacleImage = "";
+        m.obstacleImage = "rainbowPipe";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }
