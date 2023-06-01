@@ -9,12 +9,15 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Sounds {
     private String soundFilePath;
-
+    private AudioInputStream audioStream;
+    public static Clip clip;
+    String audioName;
     public void playSound(String audioName)
             throws AWTException, UnsupportedAudioFileException, IOException, LineUnavailableException {
+        this.audioName = audioName;
         File file = new File(audioName);
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-        Clip clip = AudioSystem.getClip();
+        audioStream = AudioSystem.getAudioInputStream(file);
+        clip = AudioSystem.getClip();
         clip.open(audioStream);
         FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         if (audioName.equals("crazyMusic.wav")) {

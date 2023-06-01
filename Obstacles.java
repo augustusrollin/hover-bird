@@ -10,7 +10,7 @@ import java.awt.Dimension;
 public class Obstacles {
     public Point position;
     public Dimension boundingBox;
-    public static  int speed = 20;
+    public static int speed = 20;
     public static double characterBoost = 0;
 
     public String orientation;
@@ -40,7 +40,6 @@ public class Obstacles {
     public void update() {
         position.x -= speed;
         // speed += 0.1;
-        // speed += 0.01;
     }
 
     public boolean collides(Point characterPosition, Dimension characterDimension) {

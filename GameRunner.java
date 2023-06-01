@@ -104,7 +104,6 @@ public class GameRunner {
                     e.printStackTrace();
                 }
             }
-
         }
     }
 
@@ -146,6 +145,7 @@ public class GameRunner {
             restartDelay = 10;
             Obstacles.characterBoost = 0;
             Characters.boosted = false;
+            Sounds.clip.stop();
             return;
         }
     }
@@ -196,10 +196,10 @@ public class GameRunner {
             pipe.update();
         }
     }
-
     private void checkForCollisions() {
 
         for (Obstacles pipe : pipes) {
+            Sounds music = new Sounds();
             if (pipe.collides(character.position, character.boundingBox)) {
                 gameover = true;
                 character.isDead = true;

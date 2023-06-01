@@ -14,6 +14,7 @@ public class Characters {
     private String imageName;
     private double yVelocity;
     private double gravity;
+    private int sensitivity;
     private int jumpDelay;
     private double rotation;
     public static int rocketFuel = 10;
@@ -43,6 +44,7 @@ public class Characters {
         jumpDelay = Integer.parseInt(Window.prop.getProperty("character.jumpDelay"));
         isDead = Boolean.parseBoolean(Window.prop.getProperty("character.isDead"));
         this.imageName = imageName;
+        sensitivity = 9;
         boosted = false;
         keyboard = Keyboard.getInstance();
     }
@@ -55,10 +57,10 @@ public class Characters {
 
         if (!isDead && keyboard.isDown(KeyEvent.VK_DOWN) && jumpDelay <= 0) {
             //yVelocity = -10;
-            position.y += 7;
+            position.y += sensitivity;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_UP) && jumpDelay <= 0) {
-            position.y -= 7;
+            position.y -= sensitivity;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0 && GameRunner.started) {
             // if (rocketFuel > 0) {
