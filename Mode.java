@@ -20,9 +20,9 @@ public class Mode {
         Mode m = new Mode();
         m.modeName = "future";
         m.modeBackground = "SpaceBackground2";
-        m.characterImage = "SpaceshipTestWorking";
+        m.characterImage = "SpaceshipTestWorkingNEW";
         m.obstacleImage = "cutskyscraperTest";
-        m.boundingBox = new Dimension(180, 160);
+        m.boundingBox = new Dimension(180, 205);
         return m;
 
     }
