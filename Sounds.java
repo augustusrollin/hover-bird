@@ -12,6 +12,7 @@ public class Sounds {
     private AudioInputStream audioStream;
     public static Clip clip;
     String audioName;
+
     public void playSound(String audioName)
             throws AWTException, UnsupportedAudioFileException, IOException, LineUnavailableException {
         this.audioName = audioName;
@@ -20,8 +21,10 @@ public class Sounds {
         clip = AudioSystem.getClip();
         clip.open(audioStream);
         FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        if (audioName.equals("crazyMusic.wav")) {
+        if (audioName.equals("music/crazyMusic.wav")) {
             gainControl.setValue(-25.0f);
+        } else if (audioName.equals("music/explosionSound1.wav")) {
+            gainControl.setValue(6.0f);
         }
         clip.start();
     }
