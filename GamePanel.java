@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
+    public static int gameTime = 0;
     private GameRunner game;
 
     public GamePanel() {
@@ -56,6 +57,7 @@ public class GamePanel extends JPanel implements Runnable {
             while (true) {
                 update();
                 Thread.sleep(16);
+                gameTime += 16;
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -38,7 +38,7 @@ public class Obstacles {
     }
 
     public void update() {
-        position.x -= speed;
+        position.x -= (speed + characterBoost);
         // speed += 0.1;
     }
 
