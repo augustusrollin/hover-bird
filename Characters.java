@@ -14,11 +14,11 @@ public class Characters {
     private String imageName;
     private double yVelocity;
     private double gravity;
-    private int sensitivity;
+    public static int sensitivity;
     private int jumpDelay;
     private double rotation;
-    public static int rocketFuel = 10;
-    private Image image;
+    public static int rocketFuel = 400;
+    public static Image image;
     private Keyboard keyboard;
 
     public Characters(String imageName, Dimension boundingBox) {
@@ -56,22 +56,25 @@ public class Characters {
             jumpDelay--;
 
         if (!isDead && keyboard.isDown(KeyEvent.VK_DOWN) && jumpDelay <= 0) {
-            //yVelocity = -10;
+            // yVelocity = -10;
             position.y += sensitivity;
             jumpDelay = 1;
         } else if (!isDead && keyboard.isDown(KeyEvent.VK_UP) && jumpDelay <= 0) {
             position.y -= sensitivity;
             jumpDelay = 1;
-        } else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0 && GameRunner.started) {
-            // if (rocketFuel > 0) {
-            // Obstacles.characterBoost = 7;
-            // boosted = true;
-            // rocketFuel--;
-            // imageName = "monkeyBackground";
-            // } else {
-            // Obstacles.characterBoost = 0;
-            // }
-            // jumpDelay = 1;
+        } else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && jumpDelay <= 0 && GameRunner.started
+                && GamePanel.gameTime > 5000) {
+            if (rocketFuel > 0) {
+                Obstacles.characterBoost = 11;
+                image = Util.loadImage("images/" + "boostedSpaceship" + ".png");
+                boosted = true;
+                sensitivity = 13;
+                GameRunner.PIPE_DELAY = (int) (80 / ((Obstacles.speed + Obstacles.characterBoost) / 9));
+                // imageName = "monkeyBackground";
+            } else {
+                Obstacles.characterBoost = 0;
+            }
+            jumpDelay = 1;
         }
         // position.y += (int) yVelocity;
     }

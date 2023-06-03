@@ -10,7 +10,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class GameRunner {
 
     // public static final int PIPE_DELAY = 100;
-    public static final int PIPE_DELAY = 80/(Obstacles.speed/10);
+    public static int PIPE_DELAY = 80 / (Obstacles.speed / 10);
     private Properties prop;
 
     private Boolean paused;
@@ -46,6 +46,11 @@ public class GameRunner {
         pauseDelay = 0;
         restartDelay = 0;
         pipeDelay = 0;
+        GamePanel.gameTime = 0;
+        PIPE_DELAY = 80 / (Obstacles.speed / 10);
+
+        Characters.boosted = false;
+        Characters.rocketFuel = 400;
 
         character = new Characters(mode.characterImage, mode.boundingBox);
         pipes = new ArrayList<Obstacles>();
@@ -78,7 +83,7 @@ public class GameRunner {
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
         // renders.add(new Render(0, 720, "images/thin_background.png"));
-        renders.add(new Render(0, 0, "images/"+mode.modeBackground+".png"));
+        renders.add(new Render(0, 0, "images/" + mode.modeBackground + ".png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
         // renders.add(new Render(1000, 980, "images/BlackBar.png"));
@@ -89,20 +94,19 @@ public class GameRunner {
     private void watchForStart() {
         if (!started && keyboard.isDown(KeyEvent.VK_SPACE)) {
             started = true;
-            if (startMusic) {
-                startMusic = false;
-                Sounds music = new Sounds();
-                try {
-                    music.playSound("music/crazyMusic.wav");
-                } catch (AWTException e) {
-                    e.printStackTrace();
-                } catch (UnsupportedAudioFileException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (LineUnavailableException e) {
-                    e.printStackTrace();
-                }
+            Obstacles.characterBoost = 0;
+            Characters.boosted = false;
+            Sounds audioPlayer = new Sounds();
+            try {
+                audioPlayer.playSound("music/crazyMusic.wav");
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (UnsupportedAudioFileException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (LineUnavailableException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -121,6 +125,9 @@ public class GameRunner {
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_B)) {
                 mode = Mode.rainbowMode();
+                restart();
+            } else if (keyboard.isDown(KeyEvent.VK_H)) {
+                mode = Mode.hellMode();
                 restart();
             }
         }
@@ -141,11 +148,12 @@ public class GameRunner {
             restartDelay--;
         // Obstacles.characterBoost = 0;
         if (keyboard.isDown(KeyEvent.VK_R) && restartDelay <= 0) {
+            Sounds.clip.stop();
             restart();
             restartDelay = 10;
             Obstacles.characterBoost = 0;
             Characters.boosted = false;
-            Sounds.clip.stop();
+            Characters.image = Util.loadImage("images/" + "SpaceshipTestWorking" + ".png");
             return;
         }
     }
@@ -188,14 +196,25 @@ public class GameRunner {
 
             // northPipe.y = southPipe.y + southPipe.height + 175;
             Random rand = new Random();
-            southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height)-50;
+            southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height) - 50;
             northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
         }
 
         for (Obstacles pipe : pipes) {
             pipe.update();
         }
+        if (Characters.boosted) {
+            Characters.rocketFuel--;
+        }
+        if (Characters.rocketFuel < 1) {
+            Obstacles.characterBoost = 0;
+            PIPE_DELAY = 80 / (Obstacles.speed / 10);
+            Characters.sensitivity = 9;
+            Characters.boosted = false;
+            Characters.image = Util.loadImage("images/" + "SpaceshipTestWorking" + ".png");
+        }
     }
+
     private void checkForCollisions() {
 
         for (Obstacles pipe : pipes) {

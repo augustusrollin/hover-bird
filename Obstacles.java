@@ -21,7 +21,7 @@ public class Obstacles {
         this.orientation = orientation;
         position = new Point(0, 0);
         boundingBox = new Dimension(0, 0);
-        this.imageName=imageName;
+        this.imageName = imageName;
         reset();
     }
 
@@ -38,7 +38,7 @@ public class Obstacles {
     }
 
     public void update() {
-        position.x -= speed;
+        position.x -= (speed + characterBoost);
         // speed += 0.1;
     }
 
@@ -51,7 +51,10 @@ public class Obstacles {
             if (orientation.equals("south") &&
                     (characterPosition.y < position.y + boundingBox.height)) {
                 try {
+                    Sounds.clip.stop();
                     audioPlayer.playSound("music/explosionSound1.wav");
+                    audioPlayer.playSound("music/crazyMusic.wav");
+                    Sounds.clip.stop();
                 } catch (AWTException e) {
                     e.printStackTrace();
                 } catch (UnsupportedAudioFileException e) {
@@ -65,8 +68,17 @@ public class Obstacles {
             } else if (orientation.equals("north") &&
                     (characterPosition.y + characterDimension.height > position.y)) {
                 try {
+                    Sounds.clip.stop();
                     audioPlayer.playSound("music/explosionSound1.wav");
-                } catch (AWTException | UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                    audioPlayer.playSound("music/crazyMusic.wav");
+                    Sounds.clip.stop();
+                } catch (AWTException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedAudioFileException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (LineUnavailableException e) {
                     e.printStackTrace();
                 }
                 return true;
@@ -83,7 +95,7 @@ public class Obstacles {
         if (image == null) {
             // image = Util.loadImage("images/pipe-" + orientation + ".png");
             // mode.obstacleImage
-            image = Util.loadImage("images/"+imageName+ orientation + ".png");
+            image = Util.loadImage("images/" + imageName + orientation + ".png");
         }
         r.image = image;
 

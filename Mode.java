@@ -20,9 +20,9 @@ public class Mode {
         Mode m = new Mode();
         m.modeName = "future";
         m.modeBackground = "SpaceBackground2";
-        m.characterImage = "SpaceshipTestWorkingNEW";
+        m.characterImage = "SpaceshipTestWorking";
         m.obstacleImage = "cutskyscraperTest";
-        m.boundingBox = new Dimension(180, 205);
+        m.boundingBox = new Dimension(180, 160);
         return m;
 
     }
@@ -33,7 +33,7 @@ public class Mode {
         m.modeBackground = "background";
         m.characterImage = "bird";
         m.obstacleImage = "pipe-";
-        m.boundingBox = new Dimension(180, 160);
+        m.boundingBox = new Dimension(240, 160);
         return m;
     }
 
@@ -56,5 +56,14 @@ public class Mode {
         m.boundingBox = new Dimension(248, 243);
         return m;
     }
-}
 
+    public static Mode hellMode() {
+        Mode m = new Mode();
+        m.modeName = "hell";
+        m.modeBackground = "hellBackground1";
+        m.characterImage = "hellSpaceship1";
+        m.obstacleImage = "BANA";
+        m.boundingBox = new Dimension(248, 243);
+        return m;
+    }
+}
