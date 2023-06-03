@@ -196,8 +196,8 @@ public class GameRunner {
 
             // northPipe.y = southPipe.y + southPipe.height + 175;
             Random rand = new Random();
-            southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height) - 50;
-            northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
+            southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
+            northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 500;
         }
 
         for (Obstacles pipe : pipes) {
