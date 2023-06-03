@@ -141,6 +141,7 @@ public class GameRunner {
             restartDelay--;
         // Obstacles.characterBoost = 0;
         if (keyboard.isDown(KeyEvent.VK_R) && restartDelay <= 0) {
+            Sounds.clip.stop();
             restart();
             restartDelay = 10;
             Obstacles.characterBoost = 0;

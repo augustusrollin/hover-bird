@@ -68,8 +68,17 @@ public class Obstacles {
             } else if (orientation.equals("north") &&
                     (characterPosition.y + characterDimension.height > position.y)) {
                 try {
+                    Sounds.clip.stop();
                     audioPlayer.playSound("music/explosionSound1.wav");
-                } catch (AWTException | UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                    audioPlayer.playSound("music/crazyMusic.wav");
+                    Sounds.clip.stop();
+                } catch (AWTException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedAudioFileException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (LineUnavailableException e) {
                     e.printStackTrace();
                 }
                 return true;

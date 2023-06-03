@@ -33,7 +33,7 @@ public class Mode {
         m.modeBackground = "background";
         m.characterImage = "bird";
         m.obstacleImage = "pipe-";
-        m.boundingBox = new Dimension(180, 160);
+        m.boundingBox = new Dimension(240, 160);
         return m;
     }
 
@@ -62,7 +62,7 @@ public class Mode {
         m.modeName = "hell";
         m.modeBackground = "hellBackground1";
         m.characterImage = "hellSpaceship1";
-        m.obstacleImage = "BANA"; // happy banana
+        m.obstacleImage = "BANA";
         m.boundingBox = new Dimension(248, 243);
         return m;
     }
