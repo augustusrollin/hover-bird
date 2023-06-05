@@ -28,12 +28,4 @@ public class Sounds {
         }
         clip.start();
     }
-
-    public String getSoundFilePath() {
-        return soundFilePath;
-    }
-
-    public void setSoundFilePath(String soundFilePath) {
-        soundFilePath = soundFilePath;
-    }
 }
