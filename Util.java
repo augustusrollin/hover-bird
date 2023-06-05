@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Util {
 
-    private static HashMap<String, Image> cache = new HashMap<String, Image>();
+    private static HashMap <String, Image> cache = new HashMap <String, Image>();
 
     public static Image loadImage(String path) {
         Image image = null;
