@@ -12,17 +12,17 @@ This project that is essentially an extension to the game flappy bird. We will b
 -   slides
 -   jungle/rainbow/hell themes
 
-game description
-heirarchy 
-new topics/what you learned
-how we worked together
-design process
-timeline
-roadblocks
-live demo
-uml diagrams
-basics to the code
-places you could go next
+## Potential Slides Topics
+-   game description
+-   how we worked together
+-   new topics/what we learned
+-   design process
+-   heirarchy/uml diagrams
+-   timeline
+-   basics to the code
+-   roadblocks
+-   live demo
+-   things you could work on next
 
 ## How to run the code
 ```zsh
