@@ -61,8 +61,8 @@ public class Mode {
         Mode m = new Mode();
         m.modeName = "hell";
         m.modeBackground = "hellBackground1";
-        m.characterImage = "hellSpaceship1";
-        m.obstacleImage = "BANA";
+        m.characterImage = "hellSpaceshipWorking";
+        m.obstacleImage = "hellSkyscraper";
         m.boundingBox = new Dimension(248, 243);
         return m;
     }
