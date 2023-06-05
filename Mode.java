@@ -3,7 +3,7 @@ import java.awt.Dimension;
 public class Mode {
     public String modeName;
     public String modeBackground;
-    public String characterImage;
+    public static String characterImage;
     public String obstacleImage;
     public Dimension boundingBox;
     // public String musicFile;

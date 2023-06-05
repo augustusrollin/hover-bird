@@ -22,7 +22,7 @@ public class Sounds {
         clip.open(audioStream);
         FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         if (audioName.equals("music/crazyMusic.wav")) {
-            gainControl.setValue(-25.0f);
+            gainControl.setValue(6.0f);
         } else if (audioName.equals("music/explosionSound1.wav")) {
             gainControl.setValue(6.0f);
         }

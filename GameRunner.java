@@ -116,18 +116,23 @@ public class GameRunner {
 
             if (keyboard.isDown(KeyEvent.VK_O)) {
                 mode = Mode.originalMode();
+                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_F)) {
                 mode = Mode.futureMode();
+                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_J)) {
                 mode = Mode.jungleMode();
+                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_B)) {
                 mode = Mode.rainbowMode();
+                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_H)) {
                 mode = Mode.hellMode();
+                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             }
         }
@@ -153,7 +158,7 @@ public class GameRunner {
             restartDelay = 10;
             Obstacles.characterBoost = 0;
             Characters.boosted = false;
-            Characters.image = Util.loadImage("images/" + "SpaceshipTestWorking" + ".png");
+            Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
             return;
         }
     }
@@ -197,9 +202,8 @@ public class GameRunner {
             // northPipe.y = southPipe.y + southPipe.height + 175;
             Random rand = new Random();
             southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
-            northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 500;
+            northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
         }
-
         for (Obstacles pipe : pipes) {
             pipe.update();
         }
