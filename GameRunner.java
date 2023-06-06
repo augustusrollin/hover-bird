@@ -8,12 +8,12 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class GameRunner {
-    public static int PIPE_DELAY = 80 / (Obstacles.speed / 10);
+    public static int PIPE_DELAY = 80 / (Obstacles.speed / 10); // the lower the number, the faster the pipes move
     private Properties prop;
 
     private Boolean paused;
-    private int pauseDelay;
-    private int restartDelay;
+    private int pauseDelay; // how long it takes to pause
+    private int restartDelay; // how long it takes to restart
     private int pipeDelay;
 
     private Characters character;
@@ -28,7 +28,7 @@ public class GameRunner {
 
     public GameRunner() {
         keyboard = Keyboard.getInstance();
-        mode = Mode.futureMode();
+        mode = Mode.futureMode(); // default mode
         // mode = Mode.originalMode();
         restart();
     }
@@ -44,7 +44,7 @@ public class GameRunner {
         restartDelay = 0;
         pipeDelay = 0;
         GamePanel.gameTime = 0;
-        PIPE_DELAY = 80 / (Obstacles.speed / 10);
+        PIPE_DELAY = 80 / (Obstacles.speed / 10); // restarts with same initial pipe speed, so rocket speed won't run over into the nest game
 
         Characters.boosted = false;
         Characters.rocketFuel = 400;
@@ -55,13 +55,13 @@ public class GameRunner {
 
     public void update() {
 
-        watchForStart();
-        watchForMode();
+        watchForStart(); // if user picks a space it starts
+        watchForMode(); // user picks a mode
         if (!started)
             return;
 
-        watchForPause();
-        watchForReset();
+        watchForPause(); // looks for when p is pressed
+        watchForReset(); // looks for when r is pressed
 
         if (paused)
             return;
@@ -114,21 +114,21 @@ public class GameRunner {
     private void watchForMode() {
 
         if (!started) {
-            if (keyboard.isDown(KeyEvent.VK_O)) {
+            if (keyboard.isDown(KeyEvent.VK_O)) { // if you click O original mode will play
                 mode = Mode.originalMode();
                 restart();
-            } else if (keyboard.isDown(KeyEvent.VK_F)) {
+            } else if (keyboard.isDown(KeyEvent.VK_F)) { // if you click F future mode will play
                 mode = Mode.futureMode();
                 restart();
             } /*
-               * else if (keyboard.isDown(KeyEvent.VK_J)) {
+               * else if (keyboard.isDown(KeyEvent.VK_J)) { // if you click J jungle mode will play
                * mode = Mode.jungleMode();
                * restart();
                * }
-               */else if (keyboard.isDown(KeyEvent.VK_B)) {
+               */else if (keyboard.isDown(KeyEvent.VK_B)) { // if you click B rainbow mode will play
                 mode = Mode.rainbowMode();
                 restart();
-            } else if (keyboard.isDown(KeyEvent.VK_H)) {
+            } else if (keyboard.isDown(KeyEvent.VK_H)) { // if you click H Hell mode will play
                 mode = Mode.hellMode();
                 restart();
             }
