@@ -1,9 +1,9 @@
 # hover-bird
 This project that is essentially an extension to the game flappy bird. We will be adding several other modes/themes to the game that will change the character, background, pipes, and music that is being played. 
 
--   It will have the same structure of the actual game, meaning the bird will still go through the pipes to get a higher score. A main difference about the functionality of the game is how high the speed is at the current of the level is at, high score, and time alive.
+-   It will have the same structure of the actual game, meaning the bird will still go through the pipes to get a higher score. A main difference about the functionality of the game is how high the different types of themes, the up and down arrows, and a boost function.
 
--   Another significant difference is the main menu, if we are able to get to that in the time we have been given. The main menu will consist of multiple themes that the user will be able to pick from, a default mode, jungle mode, futuristic mode, and a rainbow mode. Each mode will change the background/scenery, the character, the obstacles, and the music that is being played.
+-   Another significant difference is the main menu, if we are able to get to that in the time we have been given. The main menu will consist of multiple themes that the user will be able to pick from, a default mode, jungle mode, futuristic mode, hell mode, and a rainbow mode. Each mode will change the background/scenery, the character, the obstacles, and the music that is being played.
 
 ## Things to change/work on
 -   hitbox/collision
