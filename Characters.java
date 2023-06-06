@@ -4,7 +4,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.Point;
 import java.awt.Dimension;
 
-//birds
 public class Characters {
     public Point position;
     public Dimension boundingBox;
