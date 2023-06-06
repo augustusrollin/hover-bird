@@ -113,28 +113,23 @@ public class GameRunner {
 
     private void watchForMode() {
         if (!started) {
-
             if (keyboard.isDown(KeyEvent.VK_O)) {
                 mode = Mode.originalMode();
-                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_F)) {
                 mode = Mode.futureMode();
-                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_J)) {
                 mode = Mode.jungleMode();
-                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_B)) {
                 mode = Mode.rainbowMode();
-                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_H)) {
                 mode = Mode.hellMode();
-                Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
                 restart();
             }
+            Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
 
@@ -215,7 +210,7 @@ public class GameRunner {
             PIPE_DELAY = 80 / (Obstacles.speed / 10);
             Characters.sensitivity = 9;
             Characters.boosted = false;
-            Characters.image = Util.loadImage("images/" + "SpaceshipTestWorking" + ".png");
+            Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
 

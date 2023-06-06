@@ -60,10 +60,10 @@ public class Mode {
     public static Mode hellMode() {
         Mode m = new Mode();
         m.modeName = "hell";
-        m.modeBackground = "hellBackground1";
-        m.characterImage = "hellSpaceshipWorking";
+        m.modeBackground = "hellBackground4";
+        m.characterImage = "hellSpaceshipWorkingPixelated";
         m.obstacleImage = "hellSkyscraper";
-        m.boundingBox = new Dimension(248, 243);
+        m.boundingBox = new Dimension(180, 160);
         return m;
     }
 }
