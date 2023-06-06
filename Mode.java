@@ -1,13 +1,13 @@
 import java.awt.Dimension;
 
 public class Mode {
-    public String modeName;
-    public String modeBackground;
-    public static String characterImage;
-    public String obstacleImage;
-    public Dimension boundingBox;
-    // public String musicFile;
+    public String modeName; // Name of the game mode
+    public String modeBackground; // Background image for the game mode
+    public static String characterImage; // Character image for the game mode (static to be shared across instances)
+    public String obstacleImage; // Obstacle image for the game mode
+    public Dimension boundingBox; // Dimensions of the game mode's bounding box
 
+    // Constructor
     public Mode() {
         modeName = "";
         modeBackground = "";
@@ -16,6 +16,7 @@ public class Mode {
         boundingBox = new Dimension(0, 0);
     }
 
+    // Create a new Mode instance for the future game mode
     public static Mode futureMode() {
         Mode m = new Mode();
         m.modeName = "future";
@@ -24,9 +25,9 @@ public class Mode {
         m.obstacleImage = "cutskyscraperTest";
         m.boundingBox = new Dimension(180, 160);
         return m;
-
     }
 
+    // Create a new Mode instance for the original game mode
     public static Mode originalMode() {
         Mode m = new Mode();
         m.modeName = "original";
@@ -37,6 +38,7 @@ public class Mode {
         return m;
     }
 
+    // Create a new Mode instance for the rainbow game mode
     public static Mode rainbowMode() {
         Mode m = new Mode();
         m.modeName = "rainbow";
@@ -47,6 +49,7 @@ public class Mode {
         return m;
     }
 
+    // Create a new Mode instance for the jungle game mode
     public static Mode jungleMode() {
         Mode m = new Mode();
         m.modeName = "jungle";
@@ -57,6 +60,7 @@ public class Mode {
         return m;
     }
 
+    // Create a new Mode instance for the hell game mode
     public static Mode hellMode() {
         Mode m = new Mode();
         m.modeName = "hell";

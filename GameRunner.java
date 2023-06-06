@@ -8,13 +8,10 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class GameRunner {
-
-    // public static final int PIPE_DELAY = 100;
     public static int PIPE_DELAY = 80 / (Obstacles.speed / 10);
     private Properties prop;
 
     private Boolean paused;
-
     private int pauseDelay;
     private int restartDelay;
     private int pipeDelay;
@@ -57,6 +54,7 @@ public class GameRunner {
     }
 
     public void update() {
+
         watchForStart();
         watchForMode();
         if (!started)
@@ -78,6 +76,7 @@ public class GameRunner {
     }
 
     public ArrayList<Render> getRenders() {
+    
         ArrayList<Render> renders = new ArrayList<Render>();
         // renders.add(new Render(0, 0, "images/FuturisticSpaceBackground.png"));
         for (Obstacles pipe : pipes)
@@ -92,6 +91,7 @@ public class GameRunner {
     }
 
     private void watchForStart() {
+        
         if (!started && keyboard.isDown(KeyEvent.VK_SPACE)) {
             started = true;
             Obstacles.characterBoost = 0;
@@ -112,6 +112,7 @@ public class GameRunner {
     }
 
     private void watchForMode() {
+    
         if (!started) {
             if (keyboard.isDown(KeyEvent.VK_O)) {
                 mode = Mode.originalMode();
@@ -134,6 +135,7 @@ public class GameRunner {
     }
 
     private void watchForPause() {
+        
         if (pauseDelay > 0)
             pauseDelay--;
 
@@ -144,9 +146,10 @@ public class GameRunner {
     }
 
     private void watchForReset() {
+        
         if (restartDelay > 0)
             restartDelay--;
-        // Obstacles.characterBoost = 0;
+
         if (keyboard.isDown(KeyEvent.VK_R) && restartDelay <= 0) {
             Sounds.clip.stop();
             restart();
@@ -159,6 +162,7 @@ public class GameRunner {
     }
 
     private void movePipes() {
+        
         pipeDelay--;
 
         if (pipeDelay < 0) {
@@ -215,16 +219,20 @@ public class GameRunner {
     }
 
     private void checkForCollisions() {
-
+        
         for (Obstacles pipe : pipes) {
+            int buffer = (Obstacles.speed + (int)Obstacles.characterBoost)/2;
             Sounds music = new Sounds();
             if (pipe.collides(character.position, character.boundingBox)) {
                 gameover = true;
                 character.isDead = true;
                 Characters.rocketFuel = 10;
                 Obstacles.characterBoost = 0;
-            } else if (pipe.position.x == character.position.x && pipe.orientation.equalsIgnoreCase("south")) {
+            } else if (((pipe.position.x - buffer <= character.position.x) && (pipe.position.x + buffer >= character.position.x)) && pipe.orientation.equalsIgnoreCase("south")) {
                 score++;
+            }
+            else{
+                System.out.println(pipe.position.x + " " + character.position.x);
             }
         }
 
@@ -232,6 +240,7 @@ public class GameRunner {
         if (character.position.y + character.boundingBox.height > Window.HEIGHT - 80) {
             gameover = true;
             character.position.y = Window.HEIGHT - 80 - character.boundingBox.height;
+            score++;
         }
     }
 }
