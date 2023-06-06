@@ -36,7 +36,7 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.drawString("O for Original Mode", 650, 530);
                 g2D.drawString("F for Future Mode", 650, 580);
                 g2D.drawString("B for Rainbow Mode", 650, 630);
-                g2D.drawString("H for Hell Mode", 650, 780);
+                g2D.drawString("H for Hell Mode", 650, 680);
             } else {
                 g2D.setFont(new Font("Futurism", Font.PLAIN, 44));
                 g2D.drawString(Integer.toString(game.score), 30, 60);

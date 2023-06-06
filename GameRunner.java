@@ -221,7 +221,7 @@ public class GameRunner {
 
     private void checkForCollisions() {
         for (Obstacles pipe : pipes) {
-            int buffer = Obstacles.speed/2;
+            int buffer = (Obstacles.speed + (int)Obstacles.characterBoost)/2;
             Sounds music = new Sounds();
             if (pipe.collides(character.position, character.boundingBox)) {
                 gameover = true;
