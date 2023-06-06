@@ -21,14 +21,6 @@ This project that is essentially an extension to the game flappy bird. We will b
 -   live demo
 -   things you could work on next
 
-## How to run the code
-```zsh
-# initially you need to ensure that the run script is executable
-chmod +x run
-
-# run the program (1st it compiles, then runs java pointed at the main class aka Window)
-./run
-```
 ## How to use the terminal
 ```zsh
 # pulls all the latest code
@@ -51,6 +43,14 @@ git checkout -b BranchName
 
 # switch branch
 git checkout BranchName
+```
+## How to run the code
+```zsh
+# initially you need to ensure that the run script is executable
+chmod +x run
+
+# run the program (1st it compiles, then runs java pointed at the main class aka Window)
+./run
 ```
 
 ![view](./images/READMELoadingScreen.png)
