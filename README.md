@@ -6,11 +6,8 @@ This project that is essentially an extension to the game flappy bird. We will b
 -   Another significant difference is the main menu, if we are able to get to that in the time we have been given. The main menu will consist of multiple themes that the user will be able to pick from, a default mode, jungle mode, futuristic mode, and a rainbow mode. Each mode will change the background/scenery, the character, the obstacles, and the music that is being played.
 
 ## Things to change/work on
--   score
--   character
 -   hitbox/collision
 -   slides
--   jungle/rainbow/hell themes
 
 ## Potential Slides Topics
 -   game description
