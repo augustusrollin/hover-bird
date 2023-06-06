@@ -243,7 +243,6 @@ public class GameRunner {
         if (character.position.y + character.boundingBox.height > Window.HEIGHT - 80) {
             gameover = true;
             character.position.y = Window.HEIGHT - 80 - character.boundingBox.height;
-            score++;
         }
     }
 }
