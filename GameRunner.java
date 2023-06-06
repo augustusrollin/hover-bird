@@ -44,8 +44,9 @@ public class GameRunner {
         restartDelay = 0;
         pipeDelay = 0;
         GamePanel.gameTime = 0;
-        PIPE_DELAY = 80 / (Obstacles.speed / 10); // restarts with same initial pipe speed, so rocket speed won't run over into the nest game
-
+        
+        // restarts with same initial pipe speed, so rocket speed won't run over into the nest game
+        PIPE_DELAY = 80 / (Obstacles.speed / 10); 
         Characters.boosted = false;
         Characters.rocketFuel = 400;
 
@@ -78,20 +79,17 @@ public class GameRunner {
     public ArrayList<Render> getRenders() {
 
         ArrayList<Render> renders = new ArrayList<Render>();
-        // renders.add(new Render(0, 0, "images/FuturisticSpaceBackground.png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
-        // renders.add(new Render(0, 720, "images/thin_background.png"));
         renders.add(new Render(0, 0, "images/" + mode.modeBackground + ".png"));
         for (Obstacles pipe : pipes)
             renders.add(pipe.getRender());
-        // renders.add(new Render(1000, 980, "images/BlackBar.png"));
         renders.add(character.getRender());
         return renders;
     }
 
     private void watchForStart() {
-
+        // checks to see if space was clicked
         if (!started && keyboard.isDown(KeyEvent.VK_SPACE)) {
             started = true;
             Obstacles.characterBoost = 0;
@@ -200,7 +198,6 @@ public class GameRunner {
                 southPipe.reset();
             }
 
-            // northPipe.y = southPipe.y + southPipe.height + 175;
             Random rand = new Random();
             southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
             northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
@@ -221,10 +218,9 @@ public class GameRunner {
     }
 
     private void checkForCollisions() {
-
+        // pipe + bird collision
         for (Obstacles pipe : pipes) {
             int buffer = (Obstacles.speed + (int) Obstacles.characterBoost) / 2;
-            Sounds music = new Sounds();
             if (pipe.collides(character.position, character.boundingBox)) {
                 gameover = true;
                 character.isDead = true;

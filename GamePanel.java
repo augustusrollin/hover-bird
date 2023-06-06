@@ -22,15 +22,18 @@ public class GamePanel extends JPanel implements Runnable {
             super.paintComponent(g);
 
             Graphics2D g2D = (Graphics2D) g;
-            for (Render r : game.getRenders())
+            // Render all the objects in the game
+            for (Render r : game.getRenders()) {
                 if (r.transform != null)
                     g2D.drawImage(r.image, r.transform, null);
                 else
                     g.drawImage(r.image, r.x, r.y, null);
+            }
 
             g2D.setColor(Color.WHITE);
 
             if (!game.started) {
+                // Display the start menu
                 g2D.setFont(new Font("Futurism", Font.PLAIN, 40));
                 g2D.drawString("Press SPACE to start", 650, 480);
                 g2D.drawString("O for Original Mode", 650, 530);
@@ -38,16 +41,18 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.drawString("B for Rainbow Mode", 650, 630);
                 g2D.drawString("H for Hell Mode", 650, 680);
             } else {
+                // Display the score during gameplay
                 g2D.setFont(new Font("Futurism", Font.PLAIN, 44));
                 g2D.drawString(Integer.toString(game.score), 30, 60);
             }
 
             if (game.gameover) {
+                // Display the game over message
                 g2D.setFont(new Font("Futurism", Font.PLAIN, 40));
                 g2D.drawString("Press R to restart", 650, 480);
             }
         } catch (Exception e) {
-            System.out.println("Error occured");
+            System.out.println("Error occurred");
         }
     }
 
@@ -55,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable {
         try {
             while (true) {
                 update();
-                Thread.sleep(16);
+                Thread.sleep(16); // increases the speed of the program
                 gameTime += 16;
             }
         } catch (Exception e) {

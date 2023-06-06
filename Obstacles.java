@@ -25,23 +25,33 @@ public class Obstacles {
         reset();
     }
 
+    /**
+     * Resets the obstacles to its initial state.
+     */
     public void reset() {
         boundingBox.width = 66;
         boundingBox.height = 400;
         position.x = Window.WIDTH + 2;
         Random rand = new Random();
         if (orientation.equals("south")) {
-            // y = -(int) (Math.random() * 120) - height / 4;
             position.y = (int) (rand.nextInt(201) + rand.nextInt(201)) - boundingBox.height / 2;
-            // y = 0;
         }
     }
 
+    /**
+     * Updates the position of the obstacles based on the current speed and character boost.
+     */
     public void update() {
         position.x -= (speed + characterBoost);
-        // speed += 0.1;
     }
 
+    /**
+     * Checks if the character collides with the obstacles.
+     *
+     * @param characterPosition   the position of the character
+     * @param characterDimension  the dimensions of the character
+     * @return true if collision occurs, false otherwise
+     */
     public boolean collides(Point characterPosition, Dimension characterDimension) {
 
         int margin = 2;
@@ -87,14 +97,17 @@ public class Obstacles {
         return false;
     }
 
+    /**
+     * Returns the Render object representing the obstacles for rendering.
+     *
+     * @return the Render object for the obstacles
+     */
     public Render getRender() {
         Render r = new Render();
         r.x = position.x;
         r.y = position.y;
 
         if (image == null) {
-            // image = Util.loadImage("images/pipe-" + orientation + ".png");
-            // mode.obstacleImage
             image = Util.loadImage("images/" + imageName + orientation + ".png");
         }
         r.image = image;
