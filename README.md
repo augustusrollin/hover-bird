@@ -54,10 +54,9 @@ git checkout BranchName
 ```
 
 ![view](./images/READMELoadingScreen.png)
-<!-- ![view](./images/READMESelection.png)
-![view](./images/READMEFlappyBird.png) -->
 ![view](./images/READMEOriginal.png)
 ![view](./images/READMESelect.png)
-![view](./images/READMEFuture.png)
-![view](./images/READMEJungle.png)
-![view](./images/READMEFutureHack.png)
+![view](./images/READMEBOOST.png)
+![view](./images/READMEHELL.png)
+![view](./images/READMERAINBOW.png)
+
