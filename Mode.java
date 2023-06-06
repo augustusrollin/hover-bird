@@ -5,6 +5,7 @@ public class Mode {
     public String modeBackground; // Background image for the game mode
     public static String characterImage; // Character image for the game mode (static to be shared across instances)
     public String obstacleImage; // Obstacle image for the game mode
+    public static String boostedImage; // Charcter image for the game mode, only for boost active
     public Dimension boundingBox; // Dimensions of the game mode's bounding box
 
     // Constructor
@@ -22,6 +23,7 @@ public class Mode {
         m.modeName = "future";
         m.modeBackground = "SpaceBackground2";
         m.characterImage = "SpaceshipTestWorking";
+        m.boostedImage = "boostedSpaceship";
         m.obstacleImage = "cutskyscraperTest";
         m.boundingBox = new Dimension(180, 160);
         return m;
@@ -33,6 +35,7 @@ public class Mode {
         m.modeName = "original";
         m.modeBackground = "background";
         m.characterImage = "bird";
+        m.boostedImage = "boostedSpaceship";
         m.obstacleImage = "pipe-";
         m.boundingBox = new Dimension(240, 160);
         return m;
@@ -44,28 +47,32 @@ public class Mode {
         m.modeName = "rainbow";
         m.modeBackground = "rainbowbackground";
         m.characterImage = "UnicornWorking";
+        m.boostedImage = "boostedSpaceship";
         m.obstacleImage = "rainbowPipe";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }
 
     // Create a new Mode instance for the jungle game mode
-    public static Mode jungleMode() {
-        Mode m = new Mode();
-        m.modeName = "jungle";
-        m.modeBackground = "jungleBackground";
-        m.characterImage = "monkey";
-        m.obstacleImage = "BANA"; // happy banana
-        m.boundingBox = new Dimension(248, 243);
-        return m;
-    }
+    /*
+     * public static Mode jungleMode() {
+     * Mode m = new Mode();
+     * m.modeName = "jungle";
+     * m.modeBackground = "jungleBackground";
+     * m.characterImage = "monkey";
+     * m.obstacleImage = "BANA"; // happy banana
+     * m.boundingBox = new Dimension(248, 243);
+     * return m;
+     * }
+     */
 
     // Create a new Mode instance for the hell game mode
     public static Mode hellMode() {
         Mode m = new Mode();
         m.modeName = "hell";
-        m.modeBackground = "hellBackground4";
-        m.characterImage = "hellSpaceshipWorkingPixelated";
+        m.modeBackground = "hellBackground5Clean";
+        m.characterImage = "hellSpaceshipWorking";
+        m.boostedImage = "boostedSpaceship";
         m.obstacleImage = "hellSkyscraper";
         m.boundingBox = new Dimension(180, 160);
         return m;
