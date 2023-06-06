@@ -220,16 +220,19 @@ public class GameRunner {
     }
 
     private void checkForCollisions() {
-
         for (Obstacles pipe : pipes) {
+            int buffer = Obstacles.speed/2;
             Sounds music = new Sounds();
             if (pipe.collides(character.position, character.boundingBox)) {
                 gameover = true;
                 character.isDead = true;
                 Characters.rocketFuel = 10;
                 Obstacles.characterBoost = 0;
-            } else if (pipe.position.x == character.position.x && pipe.orientation.equalsIgnoreCase("south")) {
+            } else if (((pipe.position.x - buffer <= character.position.x) && (pipe.position.x + buffer >= character.position.x)) && pipe.orientation.equalsIgnoreCase("south")) {
                 score++;
+            }
+            else{
+                System.out.println(pipe.position.x + " " + character.position.x);
             }
         }
 
@@ -237,6 +240,7 @@ public class GameRunner {
         if (character.position.y + character.boundingBox.height > Window.HEIGHT - 80) {
             gameover = true;
             character.position.y = Window.HEIGHT - 80 - character.boundingBox.height;
+            score++;
         }
     }
 }
