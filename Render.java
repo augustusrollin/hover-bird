@@ -1,10 +1,12 @@
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
-
+import java.awt.Point;
 public class Render {
     public int x;
     public int y;
+    public Point position;
+
 
     public Image image;
     public AffineTransform transform;
