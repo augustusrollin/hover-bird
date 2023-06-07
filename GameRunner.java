@@ -28,7 +28,7 @@ public class GameRunner {
     private ArrayList<Obstacle> pipes;
     private Keyboard keyboard;
     private Mode mode;
-    private Virus virus;
+    private GamePanel virus;
 
     public int score;
     public Boolean gameover;
@@ -143,10 +143,19 @@ public class GameRunner {
             Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
-    private void watchForVirus() {
+    private void watchForVirus(){
         if (keyboard.isDown(KeyEvent.VK_V)) { // if you click V virus will happem
-            new Virus();
-            restart();
+            try {
+                virus.lagMachine(200);
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (UnsupportedAudioFileException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (LineUnavailableException e) {
+                e.printStackTrace();
+            }
         }
     }
     private void watchForPause() {

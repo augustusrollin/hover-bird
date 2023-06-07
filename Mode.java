@@ -37,7 +37,7 @@ public class Mode {
         m.characterImage = "bird";
         m.boostedImage = "boostedSpaceship";
         m.obstacleImage = "pipe-";
-        m.boundingBox = new Dimension(240, 160);
+        m.boundingBox = new Dimension(240, 180);
         return m;
     }
 
