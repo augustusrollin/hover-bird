@@ -35,11 +35,11 @@ public class Mode {
         Mode m = new Mode();
         m.modeName = "original";
         m.modeBackground = "background";
-        m.characterImage = "bird";
+        m.characterImage = "birdNew";
         m.boostedImage = "boostedSpaceship";
         Mode.boostedImage = "";
         m.obstacleImage = "pipe-";
-        m.boundingBox = new Dimension(240, 160);
+        m.boundingBox = new Dimension(180, 180);
         return m;
     }
 
@@ -48,7 +48,7 @@ public class Mode {
         Mode m = new Mode();
         m.modeName = "rainbow";
         m.modeBackground = "rainbowbackground";
-        m.characterImage = "UnicornWorking";
+        m.characterImage = "unicornNew";
         m.boostedImage = "boostedSpaceship";
         m.obstacleImage = "rainbowPipe";
         m.boundingBox = new Dimension(340, 270);
