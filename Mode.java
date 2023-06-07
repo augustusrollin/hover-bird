@@ -72,7 +72,7 @@ public class Mode {
         m.modeName = "hell";
         m.modeBackground = "hellBackground5Clean";
         m.characterImage = "hellSpaceshipWorking";
-        m.boostedImage = "boostedSpaceship";
+        m.boostedImage = "hellSpaceshipBoost";
         m.obstacleImage = "hellSkyscraper";
         m.boundingBox = new Dimension(180, 160);
         return m;
