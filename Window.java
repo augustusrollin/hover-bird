@@ -16,7 +16,7 @@ public class Window {
 
     public static void main(String[] args)
             throws AWTException, UnsupportedAudioFileException, IOException, LineUnavailableException {
-        
+
         try (InputStream input = new FileInputStream("config.properties")) {
             prop = new Properties();
 
@@ -29,11 +29,11 @@ public class Window {
         } catch (IOException ex) {
             ex.printStackTrace(); // Print the stack trace if there is an exception while loading properties
         }
-        
+
         JFrame frame = new JFrame(); // Create a new JFrame object
 
         // Configure the window properties
-        frame.setUndecorated(false); // Remove window decorations (title bar, buttons, etc.)
+        frame.setUndecorated(true); // Remove window decorations (title bar, buttons, etc.)
         frame.setVisible(true); // Make the window visible
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close the application when the window is closed
         frame.setLocationRelativeTo(null); // Center the window on the screen

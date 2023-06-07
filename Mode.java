@@ -49,9 +49,9 @@ public class Mode {
         m.modeBackground = "rainbowbackground";
         m.characterImage = "UnicornWorking";
         Mode.boostedImage = "UnicornWorking";
-        m.boostedImage = "boostedSpaceship";
+        m.boostedImage = "UnicornWorking";
         m.obstacleImage = "rainbowPipe";
-        m.boundingBox = new Dimension(340, 270);
+        m.boundingBox = new Dimension(200, 200);
         return m;
     }
 
@@ -59,7 +59,7 @@ public class Mode {
     public static Mode hellMode() {
         Mode m = new Mode();
         m.modeName = "hell";
-        m.modeBackground = "hellBackground5Clean";
+        m.modeBackground = "hellBackground3";
         m.characterImage = "hellSpaceshipWorking";
         m.boostedImage = "hellSpaceshipBoost";
         Mode.boostedImage = "hellSpaceshipBoost";
