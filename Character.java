@@ -4,7 +4,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.Point;
 import java.awt.Dimension;
 
-public class Characters {
+public class Character {
     public Point position;
     public Dimension boundingBox;
     public boolean isDead;
@@ -18,7 +18,7 @@ public class Characters {
     public static Image image;
     private Keyboard keyboard;
 
-    public Characters(String imageName, Dimension boundingBox) {
+    public Character(String imageName, Dimension boundingBox) {
         /*
          * A higher value of y shifts the birds initial postition lower on the screen
          * A higher x shifts the birds initial position towards the right side of the

@@ -16,7 +16,7 @@ public class GameRunner {
     private int restartDelay; // how long it takes to restart
     private int pipeDelay;
 
-    private Characters character;
+    private Character character;
     private ArrayList<Obstacles> pipes;
     private Keyboard keyboard;
     private Mode mode;
@@ -47,10 +47,10 @@ public class GameRunner {
         
         // restarts with same initial pipe speed, so rocket speed won't run over into the nest game
         PIPE_DELAY = 80 / (Obstacles.speed / 10); 
-        Characters.boosted = false;
-        Characters.rocketFuel = 400;
+        Character.boosted = false;
+        Character.rocketFuel = 400;
 
-        character = new Characters(mode.characterImage, mode.boundingBox);
+        character = new Character(mode.characterImage, mode.boundingBox);
         pipes = new ArrayList<Obstacles>();
     }
 
@@ -93,7 +93,7 @@ public class GameRunner {
         if (!started && keyboard.isDown(KeyEvent.VK_SPACE)) {
             started = true;
             Obstacles.characterBoost = 0;
-            Characters.boosted = false;
+            Character.boosted = false;
             Sounds audioPlayer = new Sounds();
             try {
                 audioPlayer.playSound("music/crazyMusic.wav");
@@ -130,7 +130,7 @@ public class GameRunner {
                 mode = Mode.hellMode();
                 restart();
             }
-            Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
+            Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
 
@@ -155,8 +155,8 @@ public class GameRunner {
             restart();
             restartDelay = 10;
             Obstacles.characterBoost = 0;
-            Characters.boosted = false;
-            Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
+            Character.boosted = false;
+            Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
             return;
         }
     }
@@ -205,15 +205,15 @@ public class GameRunner {
         for (Obstacles pipe : pipes) {
             pipe.update();
         }
-        if (Characters.boosted) {
-            Characters.rocketFuel--;
+        if (Character.boosted) {
+            Character.rocketFuel--;
         }
-        if (Characters.rocketFuel < 1) {
+        if (Character.rocketFuel < 1) {
             Obstacles.characterBoost = 0;
             PIPE_DELAY = 80 / (Obstacles.speed / 10);
-            Characters.sensitivity = 9;
-            Characters.boosted = false;
-            Characters.image = Util.loadImage("images/" + Mode.characterImage + ".png");
+            Character.sensitivity = 9;
+            Character.boosted = false;
+            Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
 
@@ -224,7 +224,7 @@ public class GameRunner {
             if (pipe.collides(character.position, character.boundingBox)) {
                 gameover = true;
                 character.isDead = true;
-                Characters.rocketFuel = 10;
+                Character.rocketFuel = 10;
                 Obstacles.characterBoost = 0;
             } else if (((pipe.position.x - buffer <= character.position.x)
                     && (pipe.position.x + buffer >= character.position.x))
