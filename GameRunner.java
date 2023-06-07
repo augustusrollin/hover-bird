@@ -6,6 +6,14 @@ import java.util.Properties;
 import java.util.Random;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import java.awt.geom.*;
+import javax.swing.*;
+import java.awt.*;
+import java.lang.Math;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.*;
+import java.util.Random;
 
 public class GameRunner {
     public static int PIPE_DELAY = 80 / (Obstacle.speed / 10); // the lower the number, the faster the pipes move
@@ -20,6 +28,7 @@ public class GameRunner {
     private ArrayList<Obstacle> pipes;
     private Keyboard keyboard;
     private Mode mode;
+    private Virus virus;
 
     public int score;
     public Boolean gameover;
@@ -58,6 +67,7 @@ public class GameRunner {
 
         watchForStart(); // if user picks a space it starts
         watchForMode(); // user picks a mode
+        watchForVirus();
         if (!started)
             return;
 
@@ -133,7 +143,12 @@ public class GameRunner {
             Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
-
+    private void watchForVirus() {
+        if (keyboard.isDown(KeyEvent.VK_V)) { // if you click V virus will happem
+            new Virus();
+            restart();
+        }
+    }
     private void watchForPause() {
 
         if (pauseDelay > 0)
