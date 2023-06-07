@@ -40,7 +40,7 @@ class Virus extends JComponent {
         g2d.fill(redd);
     }
 
-    private static void lagMachine(int windows)
+    static void lagMachine(int windows)
             throws AWTException, UnsupportedAudioFileException, IOException, LineUnavailableException {
         for (int i = 0; i < windows; i++) {
             Random rand = new Random();
