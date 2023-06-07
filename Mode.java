@@ -36,10 +36,9 @@ public class Mode {
         m.modeName = "original";
         m.modeBackground = "background";
         m.characterImage = "bird";
-        m.boostedImage = "boostedSpaceship";
-        Mode.boostedImage = "";
+        Mode.boostedImage = "bird";
         m.obstacleImage = "pipe-";
-        m.boundingBox = new Dimension(240, 160);
+        m.boundingBox = new Dimension(200, 160);
         return m;
     }
 
@@ -49,7 +48,7 @@ public class Mode {
         m.modeName = "rainbow";
         m.modeBackground = "rainbowbackground";
         m.characterImage = "UnicornWorking";
-        m.boostedImage = "boostedSpaceship";
+        Mode.boostedImage = "UnicornWorking";
         m.obstacleImage = "rainbowPipe";
         m.boundingBox = new Dimension(340, 270);
         return m;
