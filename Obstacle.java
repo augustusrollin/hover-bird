@@ -6,7 +6,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.Point;
 import java.awt.Dimension;
 
-public class Obstacles {
+public class Obstacle {
     public Point position;
     public Dimension boundingBox;
     public static int speed = 20;
@@ -16,7 +16,7 @@ public class Obstacles {
     private Image image;
     public String imageName;
 
-    public Obstacles(String orientation, String imageName) {
+    public Obstacle(String orientation, String imageName) {
         this.orientation = orientation;
         position = new Point(0, 0);
         boundingBox = new Dimension(0, 0);
@@ -54,16 +54,16 @@ public class Obstacles {
     public boolean collides(Point characterPosition, Dimension characterDimension) {
 
         int margin = 2;
-        Sounds audioPlayer = new Sounds();
+        Sound audioPlayer = new Sound();
         if (characterPosition.x + characterDimension.width - margin > position.x &&
                 characterPosition.x + margin < position.x + boundingBox.width) {
             if (orientation.equals("south") &&
                     (characterPosition.y < position.y + boundingBox.height)) {
                 try {
-                    Sounds.clip.stop();
+                    Sound.clip.stop();
                     audioPlayer.playSound("music/explosionSound1.wav");
                     audioPlayer.playSound("music/crazyMusic.wav");
-                    Sounds.clip.stop();
+                    Sound.clip.stop();
                 } catch (AWTException e) {
                     e.printStackTrace();
                 } catch (UnsupportedAudioFileException e) {
@@ -77,10 +77,10 @@ public class Obstacles {
             } else if (orientation.equals("north") &&
                     (characterPosition.y + characterDimension.height > position.y)) {
                 try {
-                    Sounds.clip.stop();
+                    Sound.clip.stop();
                     audioPlayer.playSound("music/explosionSound1.wav");
                     audioPlayer.playSound("music/crazyMusic.wav");
-                    Sounds.clip.stop();
+                    Sound.clip.stop();
                 } catch (AWTException e) {
                     e.printStackTrace();
                 } catch (UnsupportedAudioFileException e) {

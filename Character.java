@@ -64,13 +64,13 @@ public class Character {
                 && GamePanel.gameTime > 5000) {
             // Check if there is remaining rocket fuel
             if (rocketFuel > 0) {
-                Obstacles.characterBoost = 11;
+                Obstacle.characterBoost = 11;
                 image = Util.loadImage("images/" + "boostedSpaceship" + ".png");
                 boosted = true;
                 sensitivity = 13;
-                GameRunner.PIPE_DELAY = (int) (80 / ((Obstacles.speed + Obstacles.characterBoost) / 9));
+                GameRunner.PIPE_DELAY = (int) (80 / ((Obstacle.speed + Obstacle.characterBoost) / 9));
             } else {
-                Obstacles.characterBoost = 0;
+                Obstacle.characterBoost = 0;
             }
             jumpDelay = 1;
         }

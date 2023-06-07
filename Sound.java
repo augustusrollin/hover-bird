@@ -7,7 +7,7 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public class Sounds {
+public class Sound {
     private String soundFilePath;
     private AudioInputStream audioStream;
     public static Clip clip;
