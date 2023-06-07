@@ -14,6 +14,7 @@ public class Mode {
         modeBackground = "";
         characterImage = "";
         obstacleImage = "";
+        boostedImage = "";
         boundingBox = new Dimension(0, 0);
     }
 
@@ -36,6 +37,7 @@ public class Mode {
         m.modeBackground = "background";
         m.characterImage = "bird";
         m.boostedImage = "boostedSpaceship";
+        Mode.boostedImage = "";
         m.obstacleImage = "pipe-";
         m.boundingBox = new Dimension(240, 160);
         return m;
@@ -49,22 +51,9 @@ public class Mode {
         m.characterImage = "UnicornWorking";
         m.boostedImage = "boostedSpaceship";
         m.obstacleImage = "rainbowPipe";
-        m.boundingBox = new Dimension(180, 160);
+        m.boundingBox = new Dimension(340, 270);
         return m;
     }
-
-    // Create a new Mode instance for the jungle game mode
-    /*
-     * public static Mode jungleMode() {
-     * Mode m = new Mode();
-     * m.modeName = "jungle";
-     * m.modeBackground = "jungleBackground";
-     * m.characterImage = "monkey";
-     * m.obstacleImage = "BANA"; // happy banana
-     * m.boundingBox = new Dimension(248, 243);
-     * return m;
-     * }
-     */
 
     // Create a new Mode instance for the hell game mode
     public static Mode hellMode() {
@@ -73,6 +62,7 @@ public class Mode {
         m.modeBackground = "hellBackground5Clean";
         m.characterImage = "hellSpaceshipWorking";
         m.boostedImage = "hellSpaceshipBoost";
+        Mode.boostedImage = "hellSpaceshipBoost";
         m.obstacleImage = "hellSkyscraper";
         m.boundingBox = new Dimension(180, 160);
         return m;

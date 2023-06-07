@@ -25,7 +25,8 @@ public class Character {
          * collisions, and it affects the jumps
          * if the width and height are not properly recorded
          */
-        // Initialize the character's position, bounding box, rotation, jump delay, and death status
+        // Initialize the character's position, bounding box, rotation, jump delay, and
+        // death status
         position = new Point(
                 Integer.parseInt(Window.prop.getProperty("character.x")),
                 Integer.parseInt(Window.prop.getProperty("character.y")));
@@ -43,18 +44,19 @@ public class Character {
         // Move the character down if the down key is pressed
         if (!isDead && keyboard.isDown(KeyEvent.VK_DOWN)) {
             position.y += sensitivity;
-        } 
+        }
         // Move the character up if the up key is pressed
         else if (!isDead && keyboard.isDown(KeyEvent.VK_UP)) {
             position.y -= sensitivity;
-        } 
-        // Activate boost if the space key is pressed, the game has started, and the game time is greater than 5000
+        }
+        // Activate boost if the space key is pressed, the game has started, and the
+        // game time is greater than 5000
         else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && GameRunner.started
                 && GamePanel.gameTime > 5000) {
             // Check if there is remaining rocket fuel
             if (rocketFuel > 0) {
                 Obstacle.characterBoost = 11;
-                image = Util.loadImage("images/" + "boostedSpaceship" + ".png");
+                image = Util.loadImage("images/" + Mode.boostedImage + ".png");
                 boosted = true;
                 sensitivity = 13;
                 GameRunner.PIPE_DELAY = (int) (80 / ((Obstacle.speed + Obstacle.characterBoost) / 9));
@@ -68,20 +70,20 @@ public class Character {
         Render r = new Render();
         r.x = position.x;
         r.y = position.y;
-    
+
         // Load the image if it hasn't been loaded yet
         if (image == null) {
             image = Util.loadImage("images/" + imageName + ".png");
         }
         r.image = image;
-    
+
         r.transform = new AffineTransform();
         // Translate the transform to the center of the character's bounding box
         r.transform.translate(position.x + boundingBox.width / 2, position.y + boundingBox.height / 2);
 
         // Translate the transform back to the top-left corner of the bounding box
         r.transform.translate(-1 * boundingBox.width / 2, -1 * boundingBox.height / 2);
-    
+
         return r;
     }
 }

@@ -28,7 +28,6 @@ public class GameRunner {
     private ArrayList<Obstacle> pipes;
     private Keyboard keyboard;
     private Mode mode;
-    private Virus virus;
 
     public int score;
     public Boolean gameover;
@@ -53,9 +52,10 @@ public class GameRunner {
         restartDelay = 0;
         pipeDelay = 0;
         GamePanel.gameTime = 0;
-        
-        // restarts with same initial pipe speed, so rocket speed won't run over into the nest game
-        PIPE_DELAY = 80 / (Obstacle.speed / 10); 
+
+        // restarts with same initial pipe speed, so rocket speed won't run over into
+        // the nest game
+        PIPE_DELAY = 80 / (Obstacle.speed / 10);
         Character.boosted = false;
         Character.rocketFuel = 400;
 
@@ -67,7 +67,6 @@ public class GameRunner {
 
         watchForStart(); // if user picks a space it starts
         watchForMode(); // user picks a mode
-        watchForVirus();
         if (!started)
             return;
 
@@ -128,27 +127,18 @@ public class GameRunner {
             } else if (keyboard.isDown(KeyEvent.VK_F)) { // if you click F future mode will play
                 mode = Mode.futureMode();
                 restart();
-            } /*
-               * else if (keyboard.isDown(KeyEvent.VK_J)) { // if you click J jungle mode will play
-               * mode = Mode.jungleMode();
-               * restart();
-               * }
-               */else if (keyboard.isDown(KeyEvent.VK_B)) { // if you click B rainbow mode will play
+            } else if (keyboard.isDown(KeyEvent.VK_B)) { // if you click B rainbow mode will play
                 mode = Mode.rainbowMode();
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_H)) { // if you click H Hell mode will play
                 mode = Mode.hellMode();
+                Mode.boostedImage = "hellSpaceshipBoost";
                 restart();
             }
             Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
-    private void watchForVirus() {
-        if (keyboard.isDown(KeyEvent.VK_V)) { // if you click V virus will happem
-            new Virus();
-            restart();
-        }
-    }
+
     private void watchForPause() {
 
         if (pauseDelay > 0)
