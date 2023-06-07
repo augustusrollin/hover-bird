@@ -49,6 +49,7 @@ public class Mode {
         m.modeBackground = "rainbowbackground";
         m.characterImage = "UnicornWorking";
         Mode.boostedImage = "UnicornWorking";
+        m.boostedImage = "boostedSpaceship";
         m.obstacleImage = "rainbowPipe";
         m.boundingBox = new Dimension(340, 270);
         return m;
