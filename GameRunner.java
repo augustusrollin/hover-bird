@@ -105,7 +105,7 @@ public class GameRunner {
             Character.boosted = false;
             Sound audioPlayer = new Sound();
             try {
-                audioPlayer.playSound("music/crazyMusic.wav");
+                audioPlayer.playSound("music/" + Mode.musicName +".wav");
             } catch (AWTException e) {
                 e.printStackTrace();
             } catch (UnsupportedAudioFileException e) {
@@ -152,7 +152,7 @@ public class GameRunner {
 
     private void watchForReset() {
 
-        if (restartDelay > 0)
+        if (restartDelay > 0) 
             restartDelay--;
 
         if (keyboard.isDown(KeyEvent.VK_R) && restartDelay <= 0) {
