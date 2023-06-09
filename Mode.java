@@ -28,7 +28,7 @@ public class Mode {
         m.characterImage = "SpaceshipTestWorking";
         m.boostedImage = "boostedSpaceship";
         m.obstacleImage = "cutskyscraperTest";
-        m.musicName = "crazyMusic";
+        m.musicName = "futureMusic";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }
@@ -39,7 +39,6 @@ public class Mode {
         m.modeName = "original";
         m.modeBackground = "background";
         m.characterImage = "bird";
-        Mode.boostedImage = "bird";
         m.obstacleImage = "pipe-";
         m.musicName = "crazyMusic";
         m.boundingBox = new Dimension(200, 160);
@@ -52,10 +51,9 @@ public class Mode {
         m.modeName = "rainbow";
         m.modeBackground = "rainbowbackground";
         m.characterImage = "UnicornWorking";
-        Mode.boostedImage = "UnicornWorking";
         m.boostedImage = "UnicornWorking";
         m.obstacleImage = "rainbowPipe";
-        m.musicName = "crazyMusic";
+        m.musicName = "futureMusic";
         m.boundingBox = new Dimension(200, 200);
         return m;
     }
@@ -64,12 +62,11 @@ public class Mode {
     public static Mode hellMode() {
         Mode m = new Mode();
         m.modeName = "hell";
-        m.modeBackground = "hellBackground3";
+        m.modeBackground = "hellBackground4";
         m.characterImage = "hellSpaceshipWorking";
         m.boostedImage = "hellSpaceshipBoost";
-        Mode.boostedImage = "hellSpaceshipBoost";
         m.obstacleImage = "hellSkyscraper";
-        m.musicName = "crazyMusic";
+        m.musicName = "hellMusic";
         m.boundingBox = new Dimension(180, 160);
         return m;
     }

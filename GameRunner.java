@@ -30,7 +30,7 @@ public class GameRunner {
     private Mode mode;
 
     public int score;
-    public Boolean gameover;
+    public static Boolean gameover;
     public static Boolean started;
     public boolean startMusic = true;
 
@@ -105,7 +105,7 @@ public class GameRunner {
             Character.boosted = false;
             Sound audioPlayer = new Sound();
             try {
-                audioPlayer.playSound("music/" + Mode.musicName +".wav");
+                audioPlayer.playSound("music/" + Mode.musicName + ".wav");
             } catch (AWTException e) {
                 e.printStackTrace();
             } catch (UnsupportedAudioFileException e) {
@@ -152,7 +152,7 @@ public class GameRunner {
 
     private void watchForReset() {
 
-        if (restartDelay > 0) 
+        if (restartDelay > 0)
             restartDelay--;
 
         if (keyboard.isDown(KeyEvent.VK_R) && restartDelay <= 0) {

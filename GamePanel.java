@@ -41,9 +41,12 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.drawString("B for Rainbow Mode", 650, 630);
                 g2D.drawString("H for Hell Mode", 650, 680);
             } else {
-                // Display the score during gameplay
+                // Display the score and rocketfuel during gameplay
                 g2D.setFont(new Font("Futurism", Font.PLAIN, 44));
                 g2D.drawString(Integer.toString(game.score), 30, 60);
+                if (!GameRunner.gameover) {
+                    g2D.drawString("Rocket Fuel: " + Integer.toString(Character.rocketFuel), 1500, 60);
+                }
             }
 
             if (game.gameover) {
@@ -62,6 +65,9 @@ public class GamePanel extends JPanel implements Runnable {
                 update();
                 Thread.sleep(16); // increases the speed of the program
                 gameTime += 16;
+                if (gameTime % 20 == 0) {
+                    Character.rocketFuel++;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
