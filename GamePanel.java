@@ -47,7 +47,12 @@ public class GamePanel extends JPanel implements Runnable {
                 if (!GameRunner.gameover) {
                     //g2D.drawString("Rocket Fuel: " + Integer.toString(Character.rocketFuel), 1150, 60);
                     Color darkRed = new Color(80, 0 ,0);
-                    g2D.setColor(darkRed);
+                    Color purple = new Color(174, 55, 255);
+                    if(Mode.characterImage.equals("hellSpaceshipWorking")){
+                        g2D.setColor(darkRed);
+                    } else {
+                        g2D.setColor(purple);
+                    }
                     g2D.fillRect(1150,10, Character.rocketFuel/4, 60);
                     g2D.setColor(Color.white);
                     g2D.drawRect(1150,10, 350, 60);
