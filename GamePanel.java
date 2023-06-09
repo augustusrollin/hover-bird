@@ -45,7 +45,12 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.setFont(new Font("Futurism", Font.PLAIN, 44));
                 g2D.drawString(Integer.toString(game.score), 30, 60);
                 if (!GameRunner.gameover) {
-                    g2D.drawString("Rocket Fuel: " + Integer.toString(Character.rocketFuel), 1500, 60);
+                    //g2D.drawString("Rocket Fuel: " + Integer.toString(Character.rocketFuel), 1150, 60);
+                    Color darkRed = new Color(80, 0 ,0);
+                    g2D.setColor(darkRed);
+                    g2D.fillRect(1150,10, Character.rocketFuel/4, 60);
+                    g2D.setColor(Color.white);
+                    g2D.drawRect(1150,10, 350, 60);
                 }
             }
 
@@ -65,7 +70,7 @@ public class GamePanel extends JPanel implements Runnable {
                 update();
                 Thread.sleep(16); // increases the speed of the program
                 gameTime += 16;
-                if (gameTime % 20 == 0 && !GameRunner.paused) {
+                if (gameTime % 20 == 0 && !GameRunner.paused && Character.rocketFuel < 1400) {
                     Character.rocketFuel++;
                 }
             }

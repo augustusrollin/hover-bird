@@ -12,7 +12,7 @@ public class Character {
     public static boolean boosted;
     private String imageName;
     public static int sensitivity;
-    public static int rocketFuel = 400;
+    public static int rocketFuel = 100;
     public static Image image;
     private Keyboard keyboard;
 
@@ -51,8 +51,7 @@ public class Character {
         }
         // Activate boost if the space key is pressed, the game has started, and the
         // game time is greater than 5000
-        else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && GameRunner.started
-                && GamePanel.gameTime > 5000) {
+        else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && GameRunner.started) {
             // Check if there is remaining rocket fuel
             if (rocketFuel > 0) {
                 Obstacle.characterBoost = 11;

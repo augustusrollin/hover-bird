@@ -57,7 +57,7 @@ public class GameRunner {
         // the nest game
         PIPE_DELAY = 80 / (Obstacle.speed / 10);
         Character.boosted = false;
-        Character.rocketFuel = 400;
+        Character.rocketFuel = 100;
 
         character = new Character(mode.characterImage, mode.boundingBox);
         pipes = new ArrayList<Obstacle>();
