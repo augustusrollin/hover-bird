@@ -19,7 +19,7 @@ public class GameRunner {
     public static int PIPE_DELAY = 80 / (Obstacle.speed / 10); // the lower the number, the faster the pipes move
     private Properties prop;
 
-    private Boolean paused;
+    public static Boolean paused;
     private int pauseDelay; // how long it takes to pause
     private int restartDelay; // how long it takes to restart
     private int pipeDelay;

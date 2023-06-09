@@ -65,7 +65,7 @@ public class GamePanel extends JPanel implements Runnable {
                 update();
                 Thread.sleep(16); // increases the speed of the program
                 gameTime += 16;
-                if (gameTime % 20 == 0) {
+                if (gameTime % 20 == 0 && !GameRunner.paused) {
                     Character.rocketFuel++;
                 }
             }
