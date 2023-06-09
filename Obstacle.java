@@ -38,7 +38,8 @@ public class Obstacle {
     }
 
     /**
-     * Updates the position of the obstacles based on the current speed and character boost.
+     * Updates the position of the obstacles based on the current speed and
+     * character boost.
      */
     public void update() {
         position.x -= (speed + characterBoost);
@@ -47,8 +48,8 @@ public class Obstacle {
     /**
      * Checks if the character collides with the obstacles.
      *
-     * @param characterPosition   the position of the character
-     * @param characterDimension  the dimensions of the character
+     * @param characterPosition  the position of the character
+     * @param characterDimension the dimensions of the character
      * @return true if collision occurs, false otherwise
      */
     public boolean collides(Point characterPosition, Dimension characterDimension) {
