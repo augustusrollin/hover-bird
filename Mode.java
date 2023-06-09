@@ -6,7 +6,7 @@ public class Mode {
     public static String characterImage; // Character image for the game mode (static to be shared across instances)
     public String obstacleImage; // Obstacle image for the game mode
     public static String boostedImage; // Charcter image for the game mode, only for boost active
-    public Dimension boundingBox; // Dimensions of the game mode's bounding box
+    public Dimension boundingBox; // Dimensions of the game characters mode's bounding box
     public static String musicName;
 
     // Constructor
