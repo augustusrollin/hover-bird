@@ -49,12 +49,12 @@ public class Mode {
     public static Mode rainbowMode() {
         Mode m = new Mode();
         m.modeName = "rainbow";
-        m.modeBackground = "rainbowbackground";
-        m.characterImage = "UnicornWorking";
-        m.boostedImage = "UnicornWorking";
-        m.obstacleImage = "rainbowPipe";
+        m.modeBackground = "rainbowBackground2";
+        m.characterImage = "UnicornNew";
+        m.boostedImage = "unicornBoosted";
+        m.obstacleImage = "rainbowSkyscraper";
         m.musicName = "futureMusic";
-        m.boundingBox = new Dimension(200, 200);
+        m.boundingBox = new Dimension(240, 150);
         return m;
     }
 

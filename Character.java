@@ -51,7 +51,7 @@ public class Character {
         }
         // Activate boost if the space key is pressed, the game has started, and the
         // game time is greater than 5000
-        else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && GameRunner.started) {
+        else if (!isDead && keyboard.isDown(KeyEvent.VK_SPACE) && GameRunner.started && GamePanel.gameTime > 1000) {
             // Check if there is remaining rocket fuel
             if (rocketFuel > 0) {
                 Obstacle.characterBoost = 11;
