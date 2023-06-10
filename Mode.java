@@ -38,7 +38,7 @@ public class Mode {
         Mode m = new Mode();
         m.modeName = "original";
         m.modeBackground = "background";
-        m.characterImage = "bird";
+        m.characterImage = "birdWorking";
         m.obstacleImage = "pipe-";
         m.musicName = "crazyMusic";
         m.boundingBox = new Dimension(200, 160);
