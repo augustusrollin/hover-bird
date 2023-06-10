@@ -28,6 +28,7 @@ public class GameRunner {
     private ArrayList<Obstacle> pipes;
     private Keyboard keyboard;
     private Mode mode;
+    public Level level;
 
     public int score;
     public static Boolean gameover;
@@ -37,7 +38,7 @@ public class GameRunner {
     public GameRunner() {
         keyboard = Keyboard.getInstance();
         mode = Mode.futureMode(); // default mode
-        // mode = Mode.originalMode();
+        level = Level.easy(); // default level speed
         restart();
     }
 
@@ -56,6 +57,7 @@ public class GameRunner {
         // restarts with same initial pipe speed, so rocket speed won't run over into
         // the nest game
         PIPE_DELAY = 80 / (Obstacle.speed / 10);
+        level.levelSpeed = 25;
         Character.boosted = false;
         Character.rocketFuel = 100;
 
@@ -67,19 +69,23 @@ public class GameRunner {
 
         watchForStart(); // if user picks a space it starts
         watchForMode(); // user picks a mode
-        if (!started)
+        watchForDifficulty(); // user picks a difficulty
+        if (!started){
             return;
+        }
 
         watchForPause(); // looks for when p is pressed
         watchForReset(); // looks for when r is pressed
 
-        if (paused)
+        if (paused){
             return;
+        }
 
         character.update();
 
-        if (gameover)
+        if (gameover){
             return;
+        }
 
         movePipes();
         checkForCollisions();
@@ -88,11 +94,13 @@ public class GameRunner {
     public ArrayList<Render> getRenders() {
 
         ArrayList<Render> renders = new ArrayList<Render>();
-        for (Obstacle pipe : pipes)
+        for (Obstacle pipe : pipes){
             renders.add(pipe.getRender());
+        }
         renders.add(new Render(0, 0, "images/" + mode.modeBackground + ".png"));
-        for (Obstacle pipe : pipes)
+        for (Obstacle pipe : pipes){
             renders.add(pipe.getRender());
+        }
         renders.add(character.getRender());
         return renders;
     }
@@ -139,10 +147,31 @@ public class GameRunner {
         }
     }
 
+    private void watchForDifficulty() {
+
+        if (!started) {
+            if (keyboard.isDown(KeyEvent.VK_1)) { // if you click 1 it will be easy difficulty
+                level = Level.easy();
+                restart();
+            } else if (keyboard.isDown(KeyEvent.VK_2)) { // if you click 2 it will be medium difficulty
+                level = Level.medium();
+                restart();
+            } else if (keyboard.isDown(KeyEvent.VK_3)) { // if you click 3 it will be hard difficulty
+                level = Level.hard();
+                restart();
+            } else if (keyboard.isDown(KeyEvent.VK_4)) { // if you click 4 it will be rodent difficulty
+                level = Level.rodent();
+                restart();
+            }
+            Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
+        }
+    }
+
     private void watchForPause() {
 
-        if (pauseDelay > 0)
+        if (pauseDelay > 0){
             pauseDelay--;
+        }
 
         if (keyboard.isDown(KeyEvent.VK_P) && pauseDelay <= 0) {
             paused = !paused;
@@ -152,8 +181,9 @@ public class GameRunner {
 
     private void watchForReset() {
 
-        if (restartDelay > 0)
+        if (restartDelay > 0){
             restartDelay--;
+        }
 
         if (keyboard.isDown(KeyEvent.VK_R) && restartDelay <= 0) {
             Sound.clip.stop();
@@ -235,6 +265,9 @@ public class GameRunner {
                     && (pipe.position.x + buffer >= character.position.x))
                     && pipe.orientation.equalsIgnoreCase("south")) {
                 score++;
+                if (score % 20 == 0){
+                    level.levelSpeed += 8;
+                }
             } else {
                 System.out.println(pipe.position.x + " " + character.position.x);
             }
