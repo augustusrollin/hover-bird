@@ -57,7 +57,7 @@ public class GameRunner {
         // restarts with same initial pipe speed, so rocket speed won't run over into
         // the nest game
         PIPE_DELAY = 80 / (Obstacle.speed / 10);
-        level.levelSpeed = 25;
+        // level.levelSpeed = 25;
         Character.boosted = false;
         Character.rocketFuel = 100;
 
@@ -70,20 +70,20 @@ public class GameRunner {
         watchForStart(); // if user picks a space it starts
         watchForMode(); // user picks a mode
         watchForDifficulty(); // user picks a difficulty
-        if (!started){
+        if (!started) {
             return;
         }
 
         watchForPause(); // looks for when p is pressed
         watchForReset(); // looks for when r is pressed
 
-        if (paused){
+        if (paused) {
             return;
         }
 
         character.update();
 
-        if (gameover){
+        if (gameover) {
             return;
         }
 
@@ -94,11 +94,11 @@ public class GameRunner {
     public ArrayList<Render> getRenders() {
 
         ArrayList<Render> renders = new ArrayList<Render>();
-        for (Obstacle pipe : pipes){
+        for (Obstacle pipe : pipes) {
             renders.add(pipe.getRender());
         }
         renders.add(new Render(0, 0, "images/" + mode.modeBackground + ".png"));
-        for (Obstacle pipe : pipes){
+        for (Obstacle pipe : pipes) {
             renders.add(pipe.getRender());
         }
         renders.add(character.getRender());
@@ -169,7 +169,7 @@ public class GameRunner {
 
     private void watchForPause() {
 
-        if (pauseDelay > 0){
+        if (pauseDelay > 0) {
             pauseDelay--;
         }
 
@@ -181,7 +181,7 @@ public class GameRunner {
 
     private void watchForReset() {
 
-        if (restartDelay > 0){
+        if (restartDelay > 0) {
             restartDelay--;
         }
 
@@ -234,8 +234,13 @@ public class GameRunner {
             }
 
             Random rand = new Random();
-            southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
-            northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
+            if (Mode.characterImage.equals("birdWorking")) {
+                southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height + 200);
+                northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 600;
+            } else {
+                southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
+                northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
+            }
         }
         for (Obstacle pipe : pipes) {
             pipe.update();
@@ -265,11 +270,13 @@ public class GameRunner {
                     && (pipe.position.x + buffer >= character.position.x))
                     && pipe.orientation.equalsIgnoreCase("south")) {
                 score++;
-                if (score % 20 == 0){
-                    level.levelSpeed += 8;
-                }
+                /*
+                 * if (score % 20 == 0){
+                 * level.levelSpeed += 8;
+                 * }
+                 */
             } else {
-                System.out.println(pipe.position.x + " " + character.position.x);
+                // System.out.println(pipe.position.x + " " + character.position.x);
             }
         }
 

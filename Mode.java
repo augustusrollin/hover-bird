@@ -39,9 +39,9 @@ public class Mode {
         m.modeName = "original";
         m.modeBackground = "background";
         m.characterImage = "birdWorking";
-        m.obstacleImage = "pipe-";
+        m.obstacleImage = "flappyPipe";
         m.musicName = "crazyMusic";
-        m.boundingBox = new Dimension(200, 160);
+        m.boundingBox = new Dimension(250, 200);
         return m;
     }
 

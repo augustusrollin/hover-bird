@@ -10,7 +10,7 @@ public class Obstacle {
     public Point position;
     public Dimension boundingBox;
     public static Level level;
-    public static int speed = 25;
+    public static int speed = 20;
     public static double characterBoost = 0;
 
     public String orientation;
@@ -21,7 +21,7 @@ public class Obstacle {
         this.orientation = orientation;
         position = new Point(0, 0);
         boundingBox = new Dimension(0, 0);
-        speed = level.levelSpeed;
+        // speed = level.levelSpeed;
         this.imageName = imageName;
         reset();
     }
