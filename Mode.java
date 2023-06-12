@@ -41,7 +41,7 @@ public class Mode {
         m.characterImage = "birdWorking";
         m.obstacleImage = "flappyPipe";
         m.musicName = "crazyMusic";
-        m.boundingBox = new Dimension(250, 200);
+        m.boundingBox = new Dimension(250, 160);
         return m;
     }
 

@@ -234,13 +234,14 @@ public class GameRunner {
             }
 
             Random rand = new Random();
-            if (Mode.characterImage.equals("birdWorking")) {
-                southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height + 200);
-                northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 600;
-            } else {
-                southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
-                northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
-            }
+            // if (Mode.characterImage.equals("birdWorking")) {
+            // southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height + 200);
+            // northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height +
+            // 600;
+            // } else {
+            southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
+            northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
+            // }
         }
         for (Obstacle pipe : pipes) {
             pipe.update();
