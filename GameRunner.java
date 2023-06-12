@@ -76,6 +76,7 @@ public class GameRunner {
 
         watchForPause(); // looks for when p is pressed
         watchForReset(); // looks for when r is pressed
+        watchForSong(); // looks for when the music is over in order to replay it
 
         if (paused) {
             return;
@@ -129,7 +130,7 @@ public class GameRunner {
     private void watchForMode() {
 
         if (!started) {
-             if (keyboard.isDown(KeyEvent.VK_F)) { // if you click F future mode will play
+            if (keyboard.isDown(KeyEvent.VK_F)) { // if you click F future mode will play
                 mode = Mode.futureMode();
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_B)) { // if you click B rainbow mode will play
@@ -173,6 +174,24 @@ public class GameRunner {
         if (keyboard.isDown(KeyEvent.VK_P) && pauseDelay <= 0) {
             paused = !paused;
             pauseDelay = 10;
+        }
+    }
+
+    private void watchForSong() {
+        if (GamePanel.gameTime > 266000) {
+            Sound player = new Sound();
+            Sound.clip.stop();
+            try {
+                player.playSound(Mode.musicName);
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (UnsupportedAudioFileException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (LineUnavailableException e) {
+                e.printStackTrace();
+            }
         }
     }
 
