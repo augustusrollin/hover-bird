@@ -129,10 +129,7 @@ public class GameRunner {
     private void watchForMode() {
 
         if (!started) {
-            if (keyboard.isDown(KeyEvent.VK_O)) { // if you click O original mode will play
-                mode = Mode.originalMode();
-                restart();
-            } else if (keyboard.isDown(KeyEvent.VK_F)) { // if you click F future mode will play
+             if (keyboard.isDown(KeyEvent.VK_F)) { // if you click F future mode will play
                 mode = Mode.futureMode();
                 restart();
             } else if (keyboard.isDown(KeyEvent.VK_B)) { // if you click B rainbow mode will play
