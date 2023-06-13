@@ -53,7 +53,8 @@ public class GameRunner {
         restartDelay = 0;
         pipeDelay = 0;
         GamePanel.gameTime = 0;
-
+        Obstacle.speed = 20;
+        Character.sensitivity = 9;
         // restarts with same initial pipe speed, so rocket speed won't run over into
         // the nest game
         PIPE_DELAY = 80 / (Obstacle.speed / 10);
@@ -157,8 +158,8 @@ public class GameRunner {
             } else if (keyboard.isDown(KeyEvent.VK_3)) { // if you click 3 it will be hard difficulty
                 level = Level.hard();
                 restart();
-            } else if (keyboard.isDown(KeyEvent.VK_4)) { // if you click 4 it will be rodent difficulty
-                level = Level.rodent();
+            } else if (keyboard.isDown(KeyEvent.VK_4)) { // if you click 4 it will be impossible difficulty
+                level = Level.impossible();
                 restart();
             }
             Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
@@ -249,21 +250,11 @@ public class GameRunner {
                 Obstacle pipe = new Obstacle("south", mode.obstacleImage);
                 pipes.add(pipe);
                 southPipe = pipe;
-            } /*
-               * else {
-               * // southPipe.reset();
-               * }
-               */
+            }
 
             Random rand = new Random();
-            // if (Mode.characterImage.equals("birdWorking")) {
-            // southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height + 200);
-            // northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height +
-            // 600;
-            // } else {
             southPipe.position.y = -rand.nextInt(southPipe.boundingBox.height);
             northPipe.position.y = southPipe.position.y + southPipe.boundingBox.height + 400;
-            // }
         }
         for (Obstacle pipe : pipes) {
             pipe.update();
@@ -293,11 +284,13 @@ public class GameRunner {
                     && (pipe.position.x + buffer >= character.position.x))
                     && pipe.orientation.equalsIgnoreCase("south")) {
                 score++;
-                /*
-                 * if (score % 20 == 0){
-                 * level.levelSpeed += 8;
-                 * }
-                 */
+                
+                if (score % 5 == 0){
+                    Obstacle.speed += level.speedIncrement;
+                    Character.sensitivity++;
+                    PIPE_DELAY = 40;
+                 }
+                
             } else {
                 // System.out.println(pipe.position.x + " " + character.position.x);
             }
