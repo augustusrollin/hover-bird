@@ -93,13 +93,13 @@ public class GameRunner {
         checkForCollisions();
     }
 
-    public ArrayList<Render> getRenders() {
+    public ArrayList<ImageRender> getRenders() {
 
-        ArrayList<Render> renders = new ArrayList<Render>();
+        ArrayList<ImageRender> renders = new ArrayList<ImageRender>();
         for (Obstacle pipe : pipes) {
             renders.add(pipe.getRender());
         }
-        renders.add(new Render(0, 0, "images/" + mode.modeBackground + ".png"));
+        renders.add(new ImageRender(0, 0, "images/" + mode.modeBackground + ".png"));
         for (Obstacle pipe : pipes) {
             renders.add(pipe.getRender());
         }
@@ -142,7 +142,7 @@ public class GameRunner {
                 Mode.boostedImage = "hellSpaceshipBoost";
                 restart();
             }
-            Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
+            Character.image = ImageUtil.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
 
@@ -162,7 +162,7 @@ public class GameRunner {
                 level = Level.impossible();
                 restart();
             }
-            Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
+            Character.image = ImageUtil.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
 
@@ -208,7 +208,7 @@ public class GameRunner {
             restartDelay = 10;
             Obstacle.characterBoost = 0;
             Character.boosted = false;
-            Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
+            Character.image = ImageUtil.loadImage("images/" + Mode.characterImage + ".png");
             return;
         }
     }
@@ -267,7 +267,7 @@ public class GameRunner {
             PIPE_DELAY = 80 / (Obstacle.speed / 10);
             Character.sensitivity = 9;
             Character.boosted = false;
-            Character.image = Util.loadImage("images/" + Mode.characterImage + ".png");
+            Character.image = ImageUtil.loadImage("images/" + Mode.characterImage + ".png");
         }
     }
 

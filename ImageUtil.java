@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class Util {
+public class ImageUtil {
 
     // HashMap to cache loaded images based on their file paths
     private static HashMap<String, Image> cache = new HashMap<String, Image>();

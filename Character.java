@@ -55,7 +55,7 @@ public class Character {
             // Check if there is remaining rocket fuel
             if (rocketFuel > 0) {
                 Obstacle.characterBoost = 11;
-                image = Util.loadImage("images/" + Mode.boostedImage + ".png");
+                image = ImageUtil.loadImage("images/" + Mode.boostedImage + ".png");
                 boosted = true;
                 sensitivity = 13;
                 GameRunner.PIPE_DELAY = (int) (80 / ((Obstacle.speed + Obstacle.characterBoost) / 9));
@@ -65,14 +65,14 @@ public class Character {
         }
     }
 
-    public Render getRender() {
-        Render r = new Render();
+    public ImageRender getRender() {
+        ImageRender r = new ImageRender();
         r.x = position.x;
         r.y = position.y;
 
         // Load the image if it hasn't been loaded yet
         if (image == null) {
-            image = Util.loadImage("images/" + imageName + ".png");
+            image = ImageUtil.loadImage("images/" + imageName + ".png");
         }
         r.image = image;
 

@@ -104,13 +104,13 @@ public class Obstacle {
      *
      * @return the Render object for the obstacles
      */
-    public Render getRender() {
-        Render r = new Render();
+    public ImageRender getRender() {
+        ImageRender r = new ImageRender();
         r.x = position.x;
         r.y = position.y;
 
         if (image == null) {
-            image = Util.loadImage("images/" + imageName + orientation + ".png");
+            image = ImageUtil.loadImage("images/" + imageName + orientation + ".png");
         }
         r.image = image;
 

@@ -23,7 +23,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             Graphics2D g2D = (Graphics2D) g;
             // Render all the objects in the game
-            for (Render r : game.getRenders()) {
+            for (ImageRender r : game.getRenders()) {
                 if (r.transform != null){
                     g2D.drawImage(r.image, r.transform, null);
                 }
