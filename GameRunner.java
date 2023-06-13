@@ -287,8 +287,8 @@ public class GameRunner {
                 
                 if (score % 5 == 0){
                     Obstacle.speed += level.speedIncrement;
-                    Character.sensitivity++;
-                    PIPE_DELAY = 40;
+                    PIPE_DELAY =  80 / (Obstacle.speed / 9);
+                    Character.sensitivity = 1 + Obstacle.speed/2;
                  }
                 
             } else {
