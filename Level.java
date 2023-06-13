@@ -2,13 +2,13 @@ public class Level {
     public String levelName;
     public static int levelSpeed; 
     public static int speedIncrement;
+    public static int timeInterval;
 
     // Constructor
     public Level() {
         // levelName = "";
         levelSpeed = 25;
         speedIncrement = 1;
-
     }
 
     public static Level easy() {
@@ -16,6 +16,7 @@ public class Level {
         // l.levelName = "easy";
         l.levelSpeed = 25;
         l.speedIncrement = 1;
+        GameRunner.PIPE_DELAY = 80 / (Obstacle.speed / 10);
         return l;
     }
 
