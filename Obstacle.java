@@ -32,7 +32,7 @@ public class Obstacle {
     public void reset() {
         boundingBox.width = 66;
         boundingBox.height = 400;
-        position.x = Window.WIDTH + 2;
+        position.x = HoverBird.WIDTH + 2;
         Random rand = new Random();
         if (orientation.equals("south")) {
             position.y = (int) (rand.nextInt(201) + rand.nextInt(201)) - boundingBox.height / 2;

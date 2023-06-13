@@ -28,10 +28,10 @@ public class Character {
         // Initialize the character's position, bounding box, rotation, jump delay, and
         // death status
         position = new Point(
-                Integer.parseInt(Window.prop.getProperty("character.x")),
-                Integer.parseInt(Window.prop.getProperty("character.y")));
+                Integer.parseInt(HoverBird.prop.getProperty("character.x")),
+                Integer.parseInt(HoverBird.prop.getProperty("character.y")));
         this.boundingBox = boundingBox;
-        isDead = Boolean.parseBoolean(Window.prop.getProperty("character.isDead"));
+        isDead = Boolean.parseBoolean(HoverBird.prop.getProperty("character.isDead"));
         this.imageName = imageName;
         // Set the sensitivity, boosted boolean, and obtain the keyboard instance
         sensitivity = 9;

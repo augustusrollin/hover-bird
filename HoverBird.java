@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class Window {
+public class HoverBird {
 
     static Properties prop; // Hold properties from the configuration file
 
