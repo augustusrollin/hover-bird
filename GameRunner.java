@@ -67,10 +67,10 @@ public class GameRunner {
 
     public void update() {
 
-        watchForStart(); // if user picks a space it starts
-        watchForMode(); // user picks a mode
-        watchForDifficulty(); // user picks a difficulty
         if (!started) {
+            watchForStart(); // if user picks a space it starts
+            watchForMode(); // user picks a mode
+            watchForDifficulty(); // user picks a difficulty
             return;
         }
 
@@ -178,7 +178,7 @@ public class GameRunner {
     }
 
     private void watchForSong() {
-        if (GamePanel.gameTime > 266000) {
+        if (GamePanel.gameTime > Sound.clip.getMicrosecondLength() * 1000) {
             Sound player = new Sound();
             Sound.clip.stop();
             try {
@@ -222,32 +222,38 @@ public class GameRunner {
             Obstacle southPipe = null;
 
             // Look for pipes off the screen
-            for (Obstacle pipe : pipes) {
-                if (pipe.position.x - pipe.boundingBox.width < 0) {
-                    if (northPipe == null) {
-                        northPipe = pipe;
-                    } else if (southPipe == null) {
-                        southPipe = pipe;
-                        break;
-                    }
-                }
-            }
+            /*
+             * for (Obstacle pipe : pipes) {
+             * if (pipe.position.x - pipe.boundingBox.width < 0) {
+             * if (northPipe == null) {
+             * northPipe = pipe;
+             * } else if (southPipe == null) {
+             * southPipe = pipe;
+             * break;
+             * }
+             * }
+             * }
+             */
 
             if (northPipe == null) {
                 Obstacle pipe = new Obstacle("north", mode.obstacleImage);
                 pipes.add(pipe);
                 northPipe = pipe;
-            } else {
-                northPipe.reset();
-            }
+            } /*
+               * else {
+               * // northPipe.reset();
+               * }
+               */
 
             if (southPipe == null) {
                 Obstacle pipe = new Obstacle("south", mode.obstacleImage);
                 pipes.add(pipe);
                 southPipe = pipe;
-            } else {
-                southPipe.reset();
-            }
+            } /*
+               * else {
+               * // southPipe.reset();
+               * }
+               */
 
             Random rand = new Random();
             // if (Mode.characterImage.equals("birdWorking")) {
