@@ -245,13 +245,19 @@ public class GameRunner {
                     && (obstacle.position.x + buffer >= character.position.x))
                     && obstacle.orientation.equalsIgnoreCase("south")) {
                 score++;
-                if (score % 5 == 0){ // speed boost, adjusts sensitivity, and keeps pipe delay ratio the same
+                // speed boost, adjusts sensitivity, and keeps pipe delay ratio the same
+                if (score % level.timeInterval == 0){ 
                     Obstacle.speed += level.speedIncrement;
                     PIPE_DELAY =  80 / (Obstacle.speed / 9);
                     Character.sensitivity = 1 + Obstacle.speed/2;
                 }
-                if(score == 100){ // full boost bar
+                // gives user full boost bar if certain score is hit
+                if(score == level.fullBoostBar){ 
                     Character.rocketFuel = 1399;
+                }
+                // once you hit a certain score their will be less time in between each character boost
+                if((score == level.decremantTimeInterval) && ((level.timeInterval-level.decremant)>0)){ 
+                    level.timeInterval -= level.decremant;
                 }
             } else {
                 // score debug statement
