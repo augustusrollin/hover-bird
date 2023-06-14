@@ -21,7 +21,6 @@ public class Obstacle {
         this.orientation = orientation;
         position = new Point(0, 0);
         boundingBox = new Dimension(0, 0);
-        // speed = level.levelSpeed;
         this.imageName = imageName;
         reset();
     }
@@ -104,16 +103,16 @@ public class Obstacle {
      *
      * @return the Render object for the obstacles
      */
-    public ImageRender getRender() {
-        ImageRender r = new ImageRender();
-        r.x = position.x;
-        r.y = position.y;
+    public ImageRender getImageRender() {
+        ImageRender imgRender = new ImageRender();
+        imgRender.x = position.x;
+        imgRender.y = position.y;
 
         if (image == null) {
             image = ImageUtil.loadImage("images/" + imageName + orientation + ".png");
         }
-        r.image = image;
+        imgRender.image = image;
 
-        return r;
+        return imgRender;
     }
 }

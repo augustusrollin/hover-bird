@@ -82,11 +82,11 @@ public class GameRunner {
     public ArrayList<ImageRender> getRenders() {
         ArrayList<ImageRender> imgRender = new ArrayList<ImageRender>();
         for (Obstacle obstacle : obstacleList) {
-            imgRender.add(obstacle.getRender());
+            imgRender.add(obstacle.getImageRender());
         }
         imgRender.add(new ImageRender(0, 0, "images/" + mode.modeBackground + ".png"));
         for (Obstacle obstacle : obstacleList) {
-            imgRender.add(obstacle.getRender());
+            imgRender.add(obstacle.getImageRender());
         }
         imgRender.add(character.getImageRender());
         return imgRender;
