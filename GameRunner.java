@@ -128,6 +128,9 @@ public class GameRunner {
             } else if (key.isDown(KeyEvent.VK_O)) { // if you click B rainbow mode will play
                 mode = Mode.oceanMode();
                 restart();
+            } else if (key.isDown(KeyEvent.VK_P)) { // if you click B rainbow mode will play
+                mode = Mode.pandaMode();
+                restart();
             }
             Character.image = ImageUtil.loadImage("images/" + Mode.characterImage + ".png");
         }

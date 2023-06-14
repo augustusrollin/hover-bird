@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
 
             g2D.setColor(Color.WHITE);
-            position = new Point(650,330);
+            position = new Point(650,300);
             int spacing = 50;
             int fontSize = 40;
 
@@ -48,12 +48,13 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.drawString("B for Rainbow Mode", position.x, position.y + 2*spacing);
                 g2D.drawString("H for Hell Mode", position.x, position.y + 3*spacing);
                 g2D.drawString("O for Ocean Mode", position.x, position.y + 4*spacing);
+                g2D.drawString("P for Panda Mode", position.x, position.y + 5*spacing);
                 // NOTE: Leave a space inbetween the modes an levels
                 //dificulties
-                g2D.drawString("1 for easy difficulty", position.x, position.y + 6*spacing);
-                g2D.drawString("2 for medium difficulty", position.x, position.y + 7*spacing);
-                g2D.drawString("3 for hard difficulty", position.x, position.y + 8*spacing);
-                g2D.drawString("4 for impossible difficulty", position.x, position.y + 9*spacing);
+                g2D.drawString("1 for easy difficulty", position.x, position.y + 7*spacing);
+                g2D.drawString("2 for medium difficulty", position.x, position.y + 8*spacing);
+                g2D.drawString("3 for hard difficulty", position.x, position.y + 9*spacing);
+                g2D.drawString("4 for impossible difficulty", position.x, position.y + 10*spacing);
             } else {
                 // Display the score and rocketfuel during gameplay
                 g2D.setFont(new Font("Futurism", Font.PLAIN, fontSize));

@@ -94,4 +94,15 @@ public class Mode {
         m.boundingBox = new Dimension(240, 150);
         return m;
     }
+    public static Mode pandaMode() {
+        Mode m = new Mode();
+        m.modeName = "panda";
+        m.modeBackground = "pandaBackground1";
+        m.characterImage = "panda";
+        m.boostedImage = "pandaBoostTest";
+        m.obstacleImage = "pandaPipe";
+        m.musicName = "futureMusic";
+        m.boundingBox = new Dimension(240, 150);
+        return m;
+    }
 }
