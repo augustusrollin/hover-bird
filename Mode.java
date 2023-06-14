@@ -89,7 +89,7 @@ public class Mode {
         m.modeBackground = "oceanBackground1";
         m.characterImage = "shark";
         m.boostedImage = "sharkBoostTest";
-        m.obstacleImage = "hellSkyscraper";
+        m.obstacleImage = "newCoralPipetest";
         m.musicName = "futureMusic";
         m.boundingBox = new Dimension(240, 150);
         return m;
