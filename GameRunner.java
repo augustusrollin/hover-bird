@@ -125,6 +125,9 @@ public class GameRunner {
                 mode = Mode.hellMode();
                 Mode.boostedImage = "hellSpaceshipBoost";
                 restart();
+            } else if (key.isDown(KeyEvent.VK_O)) { // if you click B rainbow mode will play
+                mode = Mode.oceanMode();
+                restart();
             }
             Character.image = ImageUtil.loadImage("images/" + Mode.characterImage + ".png");
         }

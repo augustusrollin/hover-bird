@@ -82,4 +82,16 @@ public class Mode {
         m.boundingBox = new Dimension(180, 160);
         return m;
     }
+
+    public static Mode oceanMode() {
+        Mode m = new Mode();
+        m.modeName = "ocean";
+        m.modeBackground = "hellBackground4";
+        m.characterImage = "shark";
+        m.boostedImage = "hellSpaceshipBoost";
+        m.obstacleImage = "hellSkyscraper";
+        m.musicName = "futureMusic";
+        m.boundingBox = new Dimension(240, 150);
+        return m;
+    }
 }
