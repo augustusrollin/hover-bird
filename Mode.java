@@ -86,12 +86,12 @@ public class Mode {
     public static Mode oceanMode() {
         Mode m = new Mode();
         m.modeName = "ocean";
-        m.modeBackground = "hellBackground4";
+        m.modeBackground = "oceanBackground";
         m.characterImage = "shark";
         m.boostedImage = "hellSpaceshipBoost";
         m.obstacleImage = "hellSkyscraper";
         m.musicName = "futureMusic";
-        m.boundingBox = new Dimension(240, 150);
+        m.boundingBox = new Dimension(240, 240);
         return m;
     }
 }
