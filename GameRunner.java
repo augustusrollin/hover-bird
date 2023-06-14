@@ -290,6 +290,9 @@ public class GameRunner {
                     PIPE_DELAY =  80 / (Obstacle.speed / 9);
                     Character.sensitivity = 1 + Obstacle.speed/2;
                 }
+                if(score == 100){
+                    Character.rocketFuel = 1399;
+                }
                 
             } else {
                 // System.out.println(pipe.position.x + " " + character.position.x);
