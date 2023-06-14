@@ -60,10 +60,8 @@ chmod +x run
 ./run
 ```
 
-![view](./images/READMELoadingScreen.png)
-![view](./images/READMEOriginal.png)
-![view](./images/READMESelect.png)
-![view](./images/READMEBOOST.png)
-![view](./images/READMEHELL.png)
-![view](./images/READMERAINBOW.png)
+![view](./images/README1.png)
+![view](./images/README2.png)
+![view](./images/README3.png)
+![view](./images/README4.png)
 
