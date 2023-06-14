@@ -88,7 +88,7 @@ public class GameRunner {
         for (Obstacle obstacle : obstacleList) {
             imgRender.add(obstacle.getRender());
         }
-        imgRender.add(character.getRender());
+        imgRender.add(character.getImageRender());
         return imgRender;
     }
 
