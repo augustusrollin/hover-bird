@@ -5,7 +5,6 @@ import java.awt.Point;
 public class ImageRender {
     public int x;
     public int y;
-    public Point position;
 
 
     public Image image;
