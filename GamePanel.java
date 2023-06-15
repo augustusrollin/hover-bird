@@ -60,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.drawString("Space for boost", (2 * position.x)-130, position.y + 0*spacing);
                 g2D.drawString("P for pause", (2 * position.x)-130, position.y + 1*spacing);
                 g2D.drawString("R for restart", (2 * position.x)-130, position.y + 2*spacing);
-                g2D.drawString("Arrow keys for dirrection", (2 * position.x)-130, position.y + 3*spacing);
+                g2D.drawString("Arrow keys for direction", (2 * position.x)-130, position.y + 3*spacing);
             } else {
                 // Display the score and rocketfuel during gameplay
                 g2D.setFont(new Font("Futurism", Font.PLAIN, fontSize));
