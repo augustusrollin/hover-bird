@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
 
             g2D.setColor(Color.WHITE);
-            position = new Point(650,250);
+            position = new Point(620,250);
             int spacing = 50;
             int fontSize = 40;
 
@@ -57,10 +57,10 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.drawString("3 for hard difficulty", position.x, position.y + 10*spacing);
                 g2D.drawString("4 for impossible difficulty", position.x, position.y + 11*spacing);
 
-                g2D.drawString("Space for boost", (2 * position.x)-90, position.y + 0*spacing);
-                g2D.drawString("P for pause", (2 * position.x)-90, position.y + 1*spacing);
-                g2D.drawString("R for restart", (2 * position.x)-90, position.y + 2*spacing);
-                g2D.drawString("Arrow keys for dirrection", (2 * position.x)-90, position.y + 3*spacing);
+                g2D.drawString("Space for boost", (2 * position.x)-130, position.y + 0*spacing);
+                g2D.drawString("P for pause", (2 * position.x)-130, position.y + 1*spacing);
+                g2D.drawString("R for restart", (2 * position.x)-130, position.y + 2*spacing);
+                g2D.drawString("Arrow keys for dirrection", (2 * position.x)-130, position.y + 3*spacing);
             } else {
                 // Display the score and rocketfuel during gameplay
                 g2D.setFont(new Font("Futurism", Font.PLAIN, fontSize));
@@ -73,7 +73,7 @@ public class GamePanel extends JPanel implements Runnable {
                     Color orange = new Color(255, 149, 102); // ocean
                     Color black = new Color(0, 0, 0); // panda
                     Color cyan = new Color(140, 226, 255); // ocean
-                    
+
                     if(Mode.characterImage.equals("hellSpaceshipWorking")){
                         g2D.setColor(darkRed);
                     } else if(Mode.characterImage.equals("SpaceshipTestWorking")){
