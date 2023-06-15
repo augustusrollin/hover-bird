@@ -69,4 +69,17 @@ public class Level {
         GameRunner.PIPE_DELAY = 80 / (Obstacle.speed / 10);
         return l;
     }
+
+    public static Level test() {
+        Level l = new Level();
+        // l.levelName = "impossible";
+        l.levelSpeed = 25;
+        l.speedIncrement = 0;
+        timeInterval = 100;
+        decremantTimeInterval = 1000;
+        decremant = 0;
+        fullBoostBar = 1;
+        GameRunner.PIPE_DELAY = 80 / (Obstacle.speed / 10);
+        return l;
+    }
 }

@@ -102,7 +102,7 @@ public class Mode {
         m.boostedImage = "pandaBoostTest";
         m.obstacleImage = "pandaPipe";
         m.musicName = "futureMusic";
-        m.boundingBox = new Dimension(240, 110);
+        m.boundingBox = new Dimension(240, 140);
         return m;
     }
     public static Mode arcticMode() {
@@ -113,7 +113,7 @@ public class Mode {
         m.boostedImage = "arcticPolarbearBoost";
         m.obstacleImage = "arcticPipe";
         m.musicName = "futureMusic";
-        m.boundingBox = new Dimension(240, 110);
+        m.boundingBox = new Dimension(240, 100);
         return m;
     }
 }

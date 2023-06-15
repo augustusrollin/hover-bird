@@ -153,6 +153,9 @@ public class GameRunner {
             } else if (key.isDown(KeyEvent.VK_4)) { // if you click 4 it will be impossible difficulty
                 level = Level.impossible();
                 restart();
+            } else if (key.isDown(KeyEvent.VK_9)) { // if you click 4 it will be impossible difficulty
+                level = Level.test();
+                restart();
             }
             Character.image = ImageUtil.loadImage("images/" + Mode.characterImage + ".png");
         }
