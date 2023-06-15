@@ -70,7 +70,7 @@ public class Level {
         return l;
     }
 
-    public static Level test() {
+    public static Level test() { // no boost, a way to test to see if score works consistently
         Level l = new Level();
         // l.levelName = "impossible";
         l.levelSpeed = 25;
