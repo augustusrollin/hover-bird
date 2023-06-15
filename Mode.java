@@ -105,4 +105,15 @@ public class Mode {
         m.boundingBox = new Dimension(240, 110);
         return m;
     }
+    public static Mode arcticMode() {
+        Mode m = new Mode();
+        m.modeName = "arctic";
+        m.modeBackground = "arcticBackground1";
+        m.characterImage = "arcticPolarbear";
+        m.boostedImage = "arcticPolarbearBoost";
+        m.obstacleImage = "arcticPipe";
+        m.musicName = "futureMusic";
+        m.boundingBox = new Dimension(240, 110);
+        return m;
+    }
 }
