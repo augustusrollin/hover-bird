@@ -60,8 +60,11 @@ chmod +x run
 ./run
 ```
 
-![view](./images/README1.png)
-![view](./images/README2.png)
-![view](./images/README3.png)
-![view](./images/README4.png)
+![view](./images/READMEnew1.png)
+![view](./images/READMEnew2.png)
+![view](./images/READMEnew3.png)
+![view](./images/READMEnew4.png)
+![view](./images/READMEnew5.png)
+![view](./images/READMEnew6.png)
+![view](./images/READMEnew7.png)
 
