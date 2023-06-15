@@ -43,7 +43,7 @@ public class GamePanel extends JPanel implements Runnable {
                 // Display the start menu
                 g2D.setFont(new Font("Futurism", Font.PLAIN, fontSize));
                 // modes
-                g2D.drawString("Press SPACE to start", position.x, position.y + 0*spacing);
+                g2D.drawString("Press Enter to start", position.x, position.y + 0*spacing);
                 g2D.drawString("F for Future Mode", position.x, position.y + 1*spacing);
                 g2D.drawString("B for Rainbow Mode", position.x, position.y + 2*spacing);
                 g2D.drawString("H for Hell Mode", position.x, position.y + 3*spacing);
@@ -56,6 +56,11 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.drawString("2 for medium difficulty", position.x, position.y + 9*spacing);
                 g2D.drawString("3 for hard difficulty", position.x, position.y + 10*spacing);
                 g2D.drawString("4 for impossible difficulty", position.x, position.y + 11*spacing);
+
+                g2D.drawString("Space for boost", (2 * position.x)-90, position.y + 0*spacing);
+                g2D.drawString("P for pause", (2 * position.x)-90, position.y + 1*spacing);
+                g2D.drawString("R for restart", (2 * position.x)-90, position.y + 2*spacing);
+                g2D.drawString("Arrow keys for dirrection", (2 * position.x)-90, position.y + 3*spacing);
             } else {
                 // Display the score and rocketfuel during gameplay
                 g2D.setFont(new Font("Futurism", Font.PLAIN, fontSize));

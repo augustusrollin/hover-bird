@@ -94,7 +94,7 @@ public class GameRunner {
 
     private void watchForStart() {
         // checks to see if space was clicked
-        if (!started && key.isDown(KeyEvent.VK_SPACE)) {
+        if (!started && key.isDown(KeyEvent.VK_ENTER)) {
             started = true;
             Obstacle.characterBoost = 0;
             Character.boosted = false;
