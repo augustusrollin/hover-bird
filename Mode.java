@@ -116,4 +116,15 @@ public class Mode {
         m.boundingBox = new Dimension(240, 100);
         return m;
     }
+    public static Mode desertMode() {
+        Mode m = new Mode();
+        m.modeName = "desert";
+        m.modeBackground = "desertBackground";
+        m.characterImage = "camel";
+        m.boostedImage = "camelBoost";
+        m.obstacleImage = "desertPipe";
+        m.musicName = "futureMusic";
+        m.boundingBox = new Dimension(220, 100);
+        return m;
+    }
 }

@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
 
             g2D.setColor(Color.WHITE);
-            position = new Point(620,250);
+            position = new Point(620,200);
             int spacing = 50;
             int fontSize = 40;
 
@@ -50,12 +50,13 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.drawString("O for Ocean Mode", position.x, position.y + 4*spacing);
                 g2D.drawString("P for Panda Mode", position.x, position.y + 5*spacing);
                 g2D.drawString("A for Arctic Mode", position.x, position.y + 6*spacing);
+                g2D.drawString("D for Desert Mode", position.x, position.y + 7*spacing);
                 // NOTE: Leave a space inbetween the modes an levels
                 //dificulties
-                g2D.drawString("1 for easy difficulty", position.x, position.y + 8*spacing);
-                g2D.drawString("2 for medium difficulty", position.x, position.y + 9*spacing);
-                g2D.drawString("3 for hard difficulty", position.x, position.y + 10*spacing);
-                g2D.drawString("4 for impossible difficulty", position.x, position.y + 11*spacing);
+                g2D.drawString("1 for easy difficulty", position.x, position.y + 9*spacing);
+                g2D.drawString("2 for medium difficulty", position.x, position.y + 10*spacing);
+                g2D.drawString("3 for hard difficulty", position.x, position.y + 11*spacing);
+                g2D.drawString("4 for impossible difficulty", position.x, position.y + 12*spacing);
 
                 g2D.drawString("Space for boost", (2 * position.x)-130, position.y + 0*spacing);
                 g2D.drawString("P for pause", (2 * position.x)-130, position.y + 1*spacing);
@@ -72,6 +73,7 @@ public class GamePanel extends JPanel implements Runnable {
                     Color pink = new Color(255, 84, 220); // rainbow
                     Color orange = new Color(255, 149, 102); // ocean
                     Color black = new Color(0, 0, 0); // panda
+                    Color lightOrange = new Color(223, 183, 85); // panda
                     Color cyan = new Color(140, 226, 255); // ocean
 
                     if(Mode.characterImage.equals("hellSpaceshipWorking")){
@@ -84,7 +86,10 @@ public class GamePanel extends JPanel implements Runnable {
                         g2D.setColor(orange);
                     } else if(Mode.characterImage.equals("panda")){
                         g2D.setColor(black);
-                    } else{
+                    } else if(Mode.characterImage.equals("camel")){
+                        g2D.setColor(lightOrange);
+                    }
+                    else{
                         g2D.setColor(cyan);
                     }
                     g2D.fillRect(1150,10, Character.rocketFuel/4, 60); // rocket fuel drawing
