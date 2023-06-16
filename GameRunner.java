@@ -137,6 +137,9 @@ public class GameRunner {
             } else if (key.isDown(KeyEvent.VK_D)) { // if you click B rainbow mode will play
                 mode = Mode.desertMode();
                 restart();
+            } else if (key.isDown(KeyEvent.VK_S)) { // if you click B rainbow mode will play
+                mode = Mode.summerMode();
+                restart();
             }
             Character.image = ImageUtil.loadImage("images/" + Mode.characterImage + ".png");
         }

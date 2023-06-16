@@ -127,4 +127,15 @@ public class Mode {
         m.boundingBox = new Dimension(220, 100);
         return m;
     }
+    public static Mode summerMode() {
+        Mode m = new Mode();
+        m.modeName = "summer";
+        m.modeBackground = "beachBackground1";
+        m.characterImage = "flamingo";
+        m.boostedImage = "flamingoBoost";
+        m.obstacleImage = "beachPipe";
+        m.musicName = "futureMusic";
+        m.boundingBox = new Dimension(220, 160);
+        return m;
+    }
 }

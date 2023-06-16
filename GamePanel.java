@@ -51,12 +51,13 @@ public class GamePanel extends JPanel implements Runnable {
                 g2D.drawString("P for Panda Mode", position.x, position.y + 5*spacing);
                 g2D.drawString("A for Arctic Mode", position.x, position.y + 6*spacing);
                 g2D.drawString("D for Desert Mode", position.x, position.y + 7*spacing);
+                g2D.drawString("S for Summer Mode", position.x, position.y + 8*spacing);
                 // NOTE: Leave a space inbetween the modes an levels
                 //dificulties
-                g2D.drawString("1 for easy difficulty", position.x, position.y + 9*spacing);
-                g2D.drawString("2 for medium difficulty", position.x, position.y + 10*spacing);
-                g2D.drawString("3 for hard difficulty", position.x, position.y + 11*spacing);
-                g2D.drawString("4 for impossible difficulty", position.x, position.y + 12*spacing);
+                g2D.drawString("1 for easy difficulty", position.x, position.y + 10*spacing);
+                g2D.drawString("2 for medium difficulty", position.x, position.y + 11*spacing);
+                g2D.drawString("3 for hard difficulty", position.x, position.y + 12*spacing);
+                g2D.drawString("4 for impossible difficulty", position.x, position.y + 13*spacing);
 
                 g2D.drawString("Space for boost", (2 * position.x)-130, position.y + 0*spacing);
                 g2D.drawString("P for pause", (2 * position.x)-130, position.y + 1*spacing);
