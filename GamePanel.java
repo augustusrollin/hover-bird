@@ -75,6 +75,7 @@ public class GamePanel extends JPanel implements Runnable {
                     Color orange = new Color(255, 149, 102); // ocean
                     Color black = new Color(0, 0, 0); // panda
                     Color lightOrange = new Color(223, 183, 85); // panda
+                    Color lightPink = new Color(250, 167, 238); // flamingo
                     Color cyan = new Color(140, 226, 255); // ocean
 
                     if(Mode.characterImage.equals("hellSpaceshipWorking")){
@@ -89,6 +90,8 @@ public class GamePanel extends JPanel implements Runnable {
                         g2D.setColor(black);
                     } else if(Mode.characterImage.equals("camel")){
                         g2D.setColor(lightOrange);
+                    } else if(Mode.characterImage.equals("flamingo")){
+                        g2D.setColor(lightPink);
                     }
                     else{
                         g2D.setColor(cyan);
