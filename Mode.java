@@ -33,19 +33,6 @@ public class Mode {
         return m;
     }
 
-    // Create a new Mode instance for the original game mode
-    /*
-     * public static Mode originalMode() {
-     * Mode m = new Mode();
-     * m.modeName = "original";
-     * m.modeBackground = "background";
-     * m.characterImage = "birdWorking";
-     * m.obstacleImage = "flappyPipe";
-     * m.musicName = "crazyMusic";
-     * m.boundingBox = new Dimension(250, 160);
-     * return m;
-     * }
-     */
     // public static Mode originalMode() {
     // Mode m = new Mode();
     // m.modeName = "original";
